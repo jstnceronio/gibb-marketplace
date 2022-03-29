@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+
 import { auth } from 'firebase/app';
+
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
@@ -9,6 +11,9 @@ import {
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs';
 import { User } from './user.model';
+
+import { initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
 
 // TODO: ADD NG ROUTING AFTER SIGNOUT ;)
 
