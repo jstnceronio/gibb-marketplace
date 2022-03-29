@@ -16,7 +16,7 @@ import { User } from './user.model';
   providedIn: 'root'
 })
 export class AuthService {
-  user$: Observable<User>;
+  user$: Observable<User | null | undefined>;
 
 
   constructor(
@@ -27,7 +27,7 @@ export class AuthService {
       switchMap(user => {
         // if user is defined
         if (user) { 
-          return this.fireStore.doc<User>(`users/${user.id}`).valueChanges();
+          return this.fireStore.doc<User>(`users/${user.uid}`).valueChanges();
         } else {
           return of(null); // user not logged in
         }
@@ -42,7 +42,7 @@ export class AuthService {
   }
 
   private updateUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.fireAuth.doc(`users/${user.id}`);
+    const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`users/${user.uid}`);
     
     const data = {
       uid: user.uid,
