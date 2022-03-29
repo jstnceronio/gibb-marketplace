@@ -41,18 +41,19 @@ export class AuthService {
     return this.updateUserData(credential.user);
   }
 
-  private updateUserData(user: any) {
+  private updateUserData(user: firebase.User | null) {
+    if (!user) {
+      return;
+    }
     const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`user/${user.uid}`);
-    
-    const data = {
+    const data: User = {
       uid: user.uid,
-      firstname: user.firstname,
-      name: user.name,
-      username: user.username,
-      email: user.email,
-      school: user.school
+      firstname: "",
+      name: "",
+      username: user?.displayName ? user.displayName : "",
+      email: user?.email ? user.email : "",
+      school: ""
     };
-
     return userRef.set(data, { merge: true });
   }
 
