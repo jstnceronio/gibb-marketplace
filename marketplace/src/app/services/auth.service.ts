@@ -60,6 +60,4 @@ export class AuthService {
     await this.fireAuth.signOut();
     return this.router.navigate(['/']);
   }
-
-
 }
