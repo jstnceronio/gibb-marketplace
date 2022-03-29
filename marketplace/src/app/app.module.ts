@@ -13,6 +13,7 @@ import { getAnalytics } from "firebase/analytics";
 
 // Routing 
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LoginComponent } from './pages/login/login.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVaaVZgiDCOLY7GOyVtsqEYlcstEqCKA4",
@@ -30,7 +31,8 @@ const firebaseConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

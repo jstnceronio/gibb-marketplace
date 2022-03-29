@@ -27,7 +27,7 @@ export class AuthService {
       switchMap(user => {
         // if user is defined
         if (user) { 
-          return this.fireStore.doc<User>(`users/${user.uid}`).valueChanges();
+          return this.fireStore.doc<User>(`user/${user.uid}`).valueChanges();
         } else {
           return of(null); // user not logged in
         }
@@ -41,8 +41,8 @@ export class AuthService {
     return this.updateUserData(credential.user);
   }
 
-  private updateUserData(user) {
-    const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`users/${user.uid}`);
+  private updateUserData(user: any) {
+    const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`user/${user.uid}`);
     
     const data = {
       uid: user.uid,
@@ -60,6 +60,4 @@ export class AuthService {
     await this.fireAuth.signOut();
     return this.router.navigate(['/']);
   }
-
-
 }
