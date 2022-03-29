@@ -1,11 +1,5 @@
 import { Injectable } from '@angular/core';
-<<<<<<< HEAD
 import firebase from 'firebase/compat/app';
-=======
-
-import { auth } from 'firebase/app';
-
->>>>>>> d2e01cf62a27903c845c92b7bfb5d2f39d317a11
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
@@ -15,11 +9,7 @@ import {
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs';
 import { User } from './user.model';
-
-import { initializeApp } from "firebase/app";
-import { getFirestore } from "firebase/firestore";
-
-// TODO: ADD NG ROUTING AFTER SIGNOUT ;)
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -31,6 +21,7 @@ export class AuthService {
   constructor(
     private fireAuth: AngularFireAuth,
     private fireStore: AngularFirestore,
+    private  router: Router
   ) {
     this.user$ = this.fireAuth.authState.pipe(
       switchMap(user => {
@@ -64,4 +55,11 @@ export class AuthService {
 
     return userRef.set(data, { merge: true });
   }
+
+  async signOut() {
+    await this.fireAuth.signOut();
+    return this.router.navigate(['/']);
+  }
+
+
 }
