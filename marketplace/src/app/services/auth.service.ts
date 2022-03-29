@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { auth } from 'firebase/app';
-import { AngularFireAuth } from '@angular/fire/auth';
+import firebase from 'firebase/compat/app';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
   AngularFirestore,
   AngularFirestoreDocument
-} from '@angular/fire/firestore';
+} from '@angular/fire/compat/firestore';
 
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs';
@@ -36,8 +36,8 @@ export class AuthService {
   }
 
   async googleSignin() {
-    const provider = new auth.GoogleAuthProvider();
-    const credential = await this.fireAuth.auth.signInWithPopup(provider);
+    const provider = new firebase.auth.GoogleAuthProvider();
+    const credential = await this.fireAuth.signInWithPopup(provider);
     return this.updateUserData(credential.user);
   }
 
