@@ -11,6 +11,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 
+// Routing 
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 const firebaseConfig = {
   apiKey: "AIzaSyAVaaVZgiDCOLY7GOyVtsqEYlcstEqCKA4",
   authDomain: "gibb-marketplace.firebaseapp.com",
@@ -35,7 +38,8 @@ const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
     AngularFireAuthModule, // auth
-    AngularFireStorageModule // storage
+    AngularFireStorageModule, // storage
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
