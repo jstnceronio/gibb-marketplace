@@ -20,7 +20,11 @@
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
     "@firebase/auth": "^0.19.11",
+<<<<<<< HEAD
     "firebase": "^9.6.10",
+=======
+    "firebase": "^9.0.2",
+>>>>>>> d2e01cf62a27903c845c92b7bfb5d2f39d317a11
     "rxjs": "~7.5.0",
     "tailwindcss": "^3.0.23",
     "tslib": "^2.3.0",
