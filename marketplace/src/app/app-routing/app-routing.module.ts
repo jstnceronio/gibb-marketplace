@@ -5,7 +5,7 @@ import { LoginComponent } from '../pages/login/login.component';
 
 const routes: Routes = [
   {
-    path: '',
+    path: '', 
     component: LoginComponent, // TODO: dashboard component w/ redirect
   },
 ];
