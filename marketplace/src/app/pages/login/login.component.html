@@ -5,11 +5,12 @@
       {{ user | json }}
   </pre>
   <hr>
+  <!-- TODO: directly redirect user -->
   <div *ngIf="user.name; else register">
     <button class="button" (click)="router.navigate([''])">Enter Dashboard</button>
   </div>
   <ng-template #register>
-    <button class="button" (click)="router.navigate([''])">Register</button> // TODO: Change path to register
+    <button class="button" (click)="router.navigate(['/register'])">Register</button>
   </ng-template>
 </div>
 
