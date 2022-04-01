@@ -9,18 +9,16 @@ import {Router} from "@angular/router";
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(public auth: AuthService, private router: Router) {
-    // Navigate user to login if not logged in
-    // TODO: THIS CAN BE REPLACED WITH (A MORE CLEAN) AUTH-GUARD SERVICE
-    auth.user$.subscribe((user: any) => {
-      if (!user) {
-        router.navigate(['/login']);
-      }
-    });
-  }
+  constructor(public auth: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-
+    // EXAMPLE ON HOW TO ACCESS USER IN BACKEND
+    /*
+    this.auth.user$.subscribe((user: any) => {
+      if (user) {
+      }
+    });
+     */
   }
 
 }
