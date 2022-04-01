@@ -1,9 +1,16 @@
 <p>This is the login page!</p>
 
 <div *ngIf="auth.user$ | async as user; else login">
-    {{ user | json }}
-    <hr>
-    <button class="button" (click)="auth.signOut()">Sign Out</button>
+  <pre>
+      {{ user | json }}
+  </pre>
+  <hr>
+  <div *ngIf="user.name; else register">
+    <button class="button" (click)="router.navigate([''])">Enter Dashboard</button>
+  </div>
+  <ng-template #register>
+    <button class="button" (click)="router.navigate([''])">Register</button> // TODO: Change path to register
+  </ng-template>
 </div>
 
 <ng-template #login>

@@ -17,16 +17,16 @@ import { Router } from '@angular/router';
 export class AuthService {
   user$: Observable<User | null | undefined>;
 
-
   constructor(
     private fireAuth: AngularFireAuth,
     private fireStore: AngularFirestore,
-    private  router: Router
+    private router: Router
   ) {
     this.user$ = this.fireAuth.authState.pipe(
-      switchMap(user => {
+        // @ts-ignore
+        switchMap(user => {
         // if user is defined
-        if (user) { 
+        if (user) {
           return this.fireStore.doc<User>(`user/${user.uid}`).valueChanges();
         } else {
           return of(null); // user not logged in
@@ -59,6 +59,6 @@ export class AuthService {
 
   async signOut() {
     await this.fireAuth.signOut();
-    return this.router.navigate(['/']);
+    return this.router.navigate(['/login']);
   }
 }
