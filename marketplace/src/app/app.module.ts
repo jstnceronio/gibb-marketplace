@@ -8,13 +8,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
 // Routing 
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVaaVZgiDCOLY7GOyVtsqEYlcstEqCKA4",
@@ -33,8 +29,7 @@ const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    DashboardComponent
+    LoginComponent
   ],
   imports: [
     BrowserModule,
