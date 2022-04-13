@@ -19,4 +19,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  submit() {
+    // TODO: only proceed if form is valid
+    this.router.navigate(['/']);
+  }
+
 }
