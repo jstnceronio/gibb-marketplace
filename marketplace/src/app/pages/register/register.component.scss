@@ -1,0 +1,33 @@
+@tailwind variants;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.form-container {
+  @apply w-full max-w-xs mx-auto;
+}
+
+.form {
+  @apply bg-white px-8 pt-6 pb-8 mb-4;
+}
+
+.form-control {
+  @apply mb-4;
+}
+
+.form-label {
+  @apply block text-gray-700 text-sm font-bold mb-2;
+}
+
+// FIXME: add focus:outline-none focus:shadow-outline property (not working with @apply)
+.form-input {
+  @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+}
+
+.btn-continue {
+  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
+}
+
+.btn-back {
+  @apply inline-block align-baseline font-bold text-sm text-blue-500;
+}

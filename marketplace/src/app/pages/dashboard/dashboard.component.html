@@ -1,0 +1,9 @@
+This is the dashboard
+
+<div *ngIf="auth.user$ | async as user">
+  <div class="text-6xl">
+    Welcome {{ user.username }}
+  </div>
+  <hr>
+  <button class="button" (click)="auth.signOut()">Sign out</button>
+</div>
