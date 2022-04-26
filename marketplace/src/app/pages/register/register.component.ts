@@ -19,9 +19,13 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
 }
 
-function editData() {
-  return;
+editData() {
+  this.firstname=(<HTMLInputElement>document.getElementById('firstname')).value;
+  this.lastname=(<HTMLInputElement>document.getElementById('lastname')).value;
+  this.username=(<HTMLInputElement>document.getElementById('username')).value;
+  this.department=(<HTMLInputElement>document.getElementById('department')).value;
+
+  return await this.auth.editUserData(this.firstname, this.lastname, this.username, this.department)
 }
