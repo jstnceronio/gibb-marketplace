@@ -70,7 +70,9 @@ export class AuthService {
           email: user.email,
           school: school,
         };
-        return userRef.update(data);
+        userRef.update(data);
+        return this.router.navigate([''])
+
       } else {
         console.log('User not signed in');
         return null;
