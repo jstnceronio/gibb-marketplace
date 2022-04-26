@@ -19,4 +19,9 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
   }
 
+
+}
+
+function editData() {
+  return;
 }

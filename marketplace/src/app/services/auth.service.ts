@@ -57,6 +57,20 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
+  async editUserData(user: firebase.User, firstname: string, name: string, username: string, school: string) {
+    
+    const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`user/${user.uid}`);
+    const data: User = {
+      uid: user.uid,
+      firstname: firstname,
+      name: name,
+      username: username,
+      email: user?.email ? user.email : '',
+      school: school,
+    };
+    return await userRef.update(data);
+  }
+
   async signOut() {
     await this.fireAuth.signOut();
     return this.router.navigate(['/login']);
