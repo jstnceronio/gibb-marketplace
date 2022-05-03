@@ -1,21 +1,3 @@
-<div *ngIf="auth.user$ | async as user; else login">
-  <pre>
-      {{ user | json }}
-  </pre>
-  <hr>
-  <div *ngIf="user.name; else register">
-    <button class="button" (click)="router.navigate([''])">Enter Dashboard</button>
-  </div>
-  <ng-template #register>
-    <button class="button" (click)="router.navigate(['/register'])">Register</button>
-  </ng-template>
-</div>
-
-<ng-template #login>
-    <button class="button" (click)="auth.googleSignin()">Login with Google</button>
-</ng-template>
--->
-
 <div class="main-grid">
   <div class="side left-side">
     <div class="main-heading">
