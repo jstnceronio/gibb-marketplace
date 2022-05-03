@@ -1,14 +1,23 @@
+/* IMPORTS */
+@tailwind base;
+@tailwind components;
+@tailwind variants;
+@tailwind utilities;
+
+/* ADD FONTS HERE */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 .main-grid {
     @apply grid;
     @apply grid-cols-2;
     @apply w-full;
-    @apply h-screen;
     @apply font-montserrat;
 }
 
 .main-grid .side {
     @apply flex;
     @apply flex-col;
+    @apply h-screen;
     @apply border;
     @apply justify-center;
 }
@@ -17,29 +26,13 @@
     @apply text-left;
 }
 
-.main-grid .side.left-side .main-heading {
+.main-grid .side.other-side .main-heading {
     @apply text-3xl;
     @apply text-gray-800;
     @apply font-bold;
     @apply py-6;
 }
 
-.main-grid .side.right-side {
-    @apply bg-blue-100;
-}
-
-.main-grid .side.right-side .main-heading {
-    @apply mx-auto;
-    @apply text-6xl;
-    @apply text-gray-800;
-    @apply font-bold;
-}
-
-.main-grid .side.left-side .main-heading {
+.main-grid .side.other-side .main-heading {
     @apply text-center;
-}
-
-.main-grid .side.right-side .marketplace-logo {
-    @apply self-center;
-    @apply py-4;
 }
