@@ -1,9 +1,22 @@
+.main-grid {
+  @apply grid;
+  @apply grid-cols-2;
+  @apply w-full;
+  @apply h-screen;
+  @apply font-montserrat;
+  @apply text-gray-700;
+}
+
+.main-heading {
+  @apply text-3xl font-bold pb-8;
+}
+
 .form-container {
-  @apply w-full max-w-xs mx-auto;
+  @apply w-full max-w-lg mx-auto px-8 pt-6 pb-8 my-auto;
 }
 
 .form {
-  @apply bg-white px-8 pt-6 pb-8 mb-4;
+  @apply bg-white mb-4;
 }
 
 .form-control {
@@ -14,9 +27,9 @@
   @apply block text-gray-700 text-sm font-bold mb-2;
 }
 
-// FIXME: add focus:outline-none focus:shadow-outline property (not working with @apply)
 .form-input {
   @apply shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight;
+  /* @apply focus:outline-none focus:shadow-outline; */
 }
 
 .btn-continue {

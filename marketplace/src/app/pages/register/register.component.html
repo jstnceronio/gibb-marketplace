@@ -1,45 +1,50 @@
-<h1 class="text-3xl">Registration</h1>
-
-<div class="form-container">
-  <form class="form" name="registrationForm">
-    <!-- Firstname -->
-    <div class="form-control">
-      <label class="form-label" for="firstname">
-        Vorname
-      </label>
-      <input class="form-input" id="firstname" type="text" placeholder="Name">
+<div class="main-grid">  
+  <!-- Left side -->
+  <div class="form-container">
+    <div class="main-heading">
+      Please enter your data
     </div>
-    <!-- Lastname -->
-    <div class="form-control">
-      <label class="form-label" for="lastname">
-        Nachname
-      </label>
-      <input class="form-input" id="lastname" type="text" placeholder="Nachname">
-    </div>
-    <!-- Username -->
-    <div class="form-control">
-      <label class="form-label" for="username">
-        Benutzername
-      </label>
-      <input class="form-input" id="username" type="text" placeholder="Benutzername">
-    </div>
-    <!-- Department -->
-    <div class="form-control">
-      <label class="form-label" for="department">
-        Abteilung
-      </label>
-      <input class="form-input" id="department" type="text" placeholder="Abteilung">
-    </div>
-    <div class="flex items-center justify-between">
-      <button class="btn-continue hover:bg-blue-700" type="button" (click)="editData()">
-        Weiter
-      </button>
-      <a class="btn-back hover:text-blue-800" href="#">
-        Zurück
-      </a>
-    </div>
-  </form>
-  {{ firstname }}
+    <form class="form" name="registrationForm">
+      <!-- Firstname -->
+      <div class="form-control">
+        <label class="form-label" for="firstname">
+          Vorname
+        </label>
+        <input class="form-input" id="firstname" type="text" placeholder="Name">
+      </div>
+      <!-- Lastname -->
+      <div class="form-control">
+        <label class="form-label" for="lastname">
+          Nachname
+        </label>
+        <input class="form-input" id="lastname" type="text" placeholder="Nachname">
+      </div>
+      <!-- Username -->
+      <div class="form-control">
+        <label class="form-label" for="username">
+          Benutzername
+        </label>
+        <input class="form-input" id="username" type="text" placeholder="Benutzername">
+      </div>
+      <!-- Department -->
+      <div class="form-control">
+        <label class="form-label" for="department">
+          Abteilung
+        </label>
+        <input class="form-input" id="department" type="text" placeholder="Abteilung">
+      </div>
+      <div class="flex items-center justify-between">
+        <button class="btn-continue hover:bg-blue-700" type="button" (click)="editData()">
+          Weiter
+        </button>
+        <a class="btn-back hover:text-blue-800" href="#">
+          Zurück
+        </a>
+      </div>
+    </form>
+    {{ firstname }}
+  </div>
+  <!-- Right side -->
+  <app-logo-section></app-logo-section>
 </div>
-
 
