@@ -15,8 +15,9 @@ import { Router } from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
+  authState: any = null;
   user$: Observable<User | null | undefined>;
-
+  
   constructor(
     private fireAuth: AngularFireAuth,
     private fireStore: AngularFirestore,
@@ -55,6 +56,28 @@ export class AuthService {
       school: ""
     };
     return userRef.set(data, { merge: true });
+  }
+
+  editUserData(firstname: string, name: string, username: string, school: string) {
+    this.user$.subscribe((user: any) => {
+      if (user) {
+        const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`user/${user.uid}`);
+        const data: User = {
+          uid: user.uid,
+          firstname: firstname,
+          name: name,
+          username: username,
+          email: user.email,
+          school: school,
+        };
+        userRef.update(data);
+        return this.router.navigate([''])
+
+      } else {
+        console.log('User not signed in');
+        return null;
+      }
+    });
   }
 
   async signOut() {
