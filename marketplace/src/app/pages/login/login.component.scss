@@ -1,3 +1,45 @@
-.button {
-    @apply text-green-600;
+.main-grid {
+    @apply grid;
+    @apply grid-cols-2;
+    @apply w-full;
+    @apply h-screen;
+    @apply font-montserrat;
+}
+
+.main-grid .side {
+    @apply flex;
+    @apply flex-col;
+    @apply border;
+    @apply justify-center;
+}
+
+.main-grid .side .main-heading {
+    @apply text-left;
+}
+
+.main-grid .side.left-side .main-heading {
+    @apply text-3xl;
+    @apply text-gray-800;
+    @apply font-bold;
+    @apply py-6;
+}
+
+.main-grid .side.right-side {
+    @apply bg-blue-100;
+}
+
+.main-grid .side.right-side .main-heading {
+    @apply mx-auto;
+    @apply text-6xl;
+    @apply text-gray-800;
+    @apply font-bold;
+}
+
+.main-grid .side.left-side .main-heading {
+    @apply text-center;
+}
+
+.main-grid .side.right-side .marketplace-logo {
+    @apply self-center;
+    @apply py-4;
 }
