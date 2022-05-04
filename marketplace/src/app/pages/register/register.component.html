@@ -1,50 +1,50 @@
-<div class="main-grid">  
-  <!-- Left side -->
-  <div class="form-container">
-    <div class="main-heading">
-      Please enter your data
-    </div>
-    <form class="form" name="registrationForm">
+<h1 class="text-3xl">Registration</h1>
+<div class="form-container">
+  <form class="form" [formGroup]="registrationForm" (ngSubmit)="editData()">
+    <div class="form-group">
       <!-- Firstname -->
       <div class="form-control">
         <label class="form-label" for="firstname">
           Vorname
         </label>
-        <input class="form-input" id="firstname" type="text" placeholder="Name">
+        <input class="form-input" id="firstname" type="text" placeholder="Firstname" formControlName="firstname"><br>
+        <span class="text-danger" *ngIf="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required', 'firstname')">Firstname field is required</span>
       </div>
       <!-- Lastname -->
       <div class="form-control">
         <label class="form-label" for="lastname">
           Nachname
         </label>
-        <input class="form-input" id="lastname" type="text" placeholder="Nachname">
+        <input class="form-input" id="lastname" type="text" placeholder="Lastname" formControlName="lastname"><br>
+        <span class="text-danger" *ngIf="registrationForm.controls['lastname'].dirty && registrationForm.hasError('required', 'lastname')">Lastname field is required</span>
       </div>
       <!-- Username -->
       <div class="form-control">
         <label class="form-label" for="username">
           Benutzername
         </label>
-        <input class="form-input" id="username" type="text" placeholder="Benutzername">
+        <input class="form-input" id="username" type="text" placeholder="Username" formControlName="username"><br>
+        <span class="text-danger" *ngIf="registrationForm.controls['username'].dirty && registrationForm.hasError('required', 'username')">Username field is required</span>
       </div>
       <!-- Department -->
       <div class="form-control">
         <label class="form-label" for="department">
           Abteilung
         </label>
-        <input class="form-input" id="department" type="text" placeholder="Abteilung">
+        <input class="form-input" id="department" type="text" placeholder="Abteilung" formControlName="department"><br>
+        <span class="text-danger" *ngIf="registrationForm.controls['department'].dirty && registrationForm.hasError('required', 'department')">Department field is required</span>
       </div>
+      
       <div class="flex items-center justify-between">
-        <button class="btn-continue hover:bg-blue-700" type="button" (click)="editData()">
+        <button type="submit" class="btn-continue hover:bg-blue-700" [disabled]="!registrationForm.valid">
           Weiter
         </button>
         <a class="btn-back hover:text-blue-800" href="#">
           Zurück
         </a>
       </div>
-    </form>
-    {{ firstname }}
-  </div>
+    </div>
+  </form>
   <!-- Right side -->
   <app-logo-section></app-logo-section>
 </div>
-

@@ -21,4 +21,8 @@ export class DashboardComponent implements OnInit {
      */
   }
 
+  async createPost() {
+      
+  }
+
 }

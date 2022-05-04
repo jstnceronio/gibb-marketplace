@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
-import {FormsModule} from "@angular/forms";
+import {ReactiveFormsModule, FormBuilder, FormControl, FormGroup, NgForm, Validators, } from "@angular/forms";
+;
 
 @Component({
   selector: 'app-register',
@@ -9,23 +10,29 @@ import {FormsModule} from "@angular/forms";
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  firstname: string = ' ';
-  lastname: string = ' ';
-  username: string = ' ';
-  department: string = ' ';
+  public _firstname = ' '
+  public _lastname = ' ';
+  public _username = ' ';
+  public _department = ' ';
 
-  constructor(public auth: AuthService, public router: Router) { }
+  public registrationForm!: FormGroup
+  constructor(public auth: AuthService, public router: Router, private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
+    this.registrationForm = this.formBuilder.group({
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      username: ['', Validators.required],
+      department: ['', Validators.required]
+    })
   }
 
   async editData() {
-    this.firstname=(<HTMLInputElement>document.getElementById('firstname')).value;
-    this.lastname=(<HTMLInputElement>document.getElementById('lastname')).value;
-    this.username=(<HTMLInputElement>document.getElementById('username')).value;
-    this.department=(<HTMLInputElement>document.getElementById('department')).value;
-  
-    return await this.auth.editUserData(this.firstname, this.lastname, this.username, this.department)
-  }
+    this._firstname = this.registrationForm.get('firstname')!.value;
+    this._lastname = this.registrationForm.get('lastname')!.value;
+    this._username = this.registrationForm.get('username')!.value;
+    this._department = this.registrationForm.get('department')!.value;
 
+    return await this.auth.editUserData(this._firstname, this._lastname, this._username, this._department)
+  }
 }
