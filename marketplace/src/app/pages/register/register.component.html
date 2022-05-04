@@ -1,5 +1,4 @@
 <h1 class="text-3xl">Registration</h1>
-
 <div class="form-container">
   <form class="form" [formGroup]="registrationForm" (ngSubmit)="editData()">
     <div class="form-group">
@@ -11,7 +10,6 @@
         <input class="form-input" id="firstname" type="text" placeholder="Firstname" formControlName="firstname"><br>
         <span class="text-danger" *ngIf="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required', 'firstname')">Firstname field is required</span>
       </div>
-
       <!-- Lastname -->
       <div class="form-control">
         <label class="form-label" for="lastname">
@@ -20,7 +18,6 @@
         <input class="form-input" id="lastname" type="text" placeholder="Lastname" formControlName="lastname"><br>
         <span class="text-danger" *ngIf="registrationForm.controls['lastname'].dirty && registrationForm.hasError('required', 'lastname')">Lastname field is required</span>
       </div>
-      
       <!-- Username -->
       <div class="form-control">
         <label class="form-label" for="username">
@@ -29,7 +26,6 @@
         <input class="form-input" id="username" type="text" placeholder="Username" formControlName="username"><br>
         <span class="text-danger" *ngIf="registrationForm.controls['username'].dirty && registrationForm.hasError('required', 'username')">Username field is required</span>
       </div>
-
       <!-- Department -->
       <div class="form-control">
         <label class="form-label" for="department">
@@ -49,6 +45,6 @@
       </div>
     </div>
   </form>
+  <!-- Right side -->
+  <app-logo-section></app-logo-section>
 </div>
-
-

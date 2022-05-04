@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { LogoSectionComponent } from './shared/logo-section/logo-section.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVaaVZgiDCOLY7GOyVtsqEYlcstEqCKA4",
@@ -34,7 +35,8 @@ const firebaseConfig = {
     AppComponent,
     LoginComponent,
     DashboardComponent,
-    RegisterComponent
+    RegisterComponent,
+    LogoSectionComponent
   ],
   imports: [
     BrowserModule,
