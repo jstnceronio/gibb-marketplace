@@ -4,7 +4,7 @@
     <div class="main-heading">
       Please enter your data
     </div>
-    <form class="form" name="registrationForm">
+    <form class="form" name="registrationForm" [formGroup]="registrationForm" (ngSubmit)="editData()">
       <div class="form-group">
         <!-- Firstname -->
         <div class="form-control">
