@@ -1,0 +1,27 @@
+* {
+    @apply font-montserrat;
+}
+
+.header {
+    @apply border-2 border-sky-500;
+
+    form {
+        @apply w-fit p-8;
+
+        .title {
+            @apply uppercase text-lg text-gray-500 font-bold;  
+          }
+      
+          .field {
+              @apply flex flex-row-reverse justify-start mt-2;
+              
+              .btn-submit {
+                  @apply border-2 border-gray-400 text-xl text-gray-400 w-8 rounded-2xl;
+              }
+            
+              .input {
+                  @apply font-semibold ml-8;
+              }
+          }
+    }
+}
