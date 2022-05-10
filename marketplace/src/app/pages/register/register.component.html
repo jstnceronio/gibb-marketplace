@@ -39,7 +39,7 @@
           <span class="text-danger" *ngIf="registrationForm.controls['department'].dirty && registrationForm.hasError('required', 'department')">Department field is required</span>
         </div>
         <div class="flex items-center justify-between">
-          <button class="btn-continue hover:bg-blue-700" type="button" (click)="editData()">
+          <button class="btn-continue hover:bg-blue-700" type="submit" [disabled]="!registrationForm.valid">
             Weiter
           </button>
           <a class="btn-back hover:text-blue-800" href="#">
