@@ -1,10 +1,25 @@
-This is the dashboard
+<div class="header">
+  <form action="">
+    <div class="title">
+      Home
+    </div>
+    <div class="field">
+      <input class="input" type="text" placeholder="Post hinzufügen"/>
+      <button class="btn-submit" type="submit">+</button>
+    </div>
+  </form>
+</div>
+
+<div class="filter">
+  <form action="">
+    
+  </form>
+</div>
 
 <div *ngIf="auth.user$ | async as user">
-  <div class="text-2xl">
+  <div class="text-2xl mt-32">
     Welcome {{ user.username }}
   </div>
   <hr>
   <button class="button" (click)="auth.signOut()">Sign out</button>
-  <button class="button" (click)="auth.signOut()">Create Post</button>
 </div>
