@@ -25,3 +25,36 @@
           }
     }
 }
+
+.filter {
+    @apply border-2 border-sky-500 mt-4;
+
+    form {
+        @apply w-fit p-8;
+
+        .field {
+            @apply flex justify-start;
+            
+            .select {
+                @apply appearance-none
+                block
+                w-64
+                px-3
+                py-1.5
+                text-base
+                font-semibold
+                text-gray-500
+                bg-white bg-clip-padding bg-no-repeat
+                border-2 border-solid border-gray-400
+                transition
+                ease-in-out
+                m-0;
+                @apply focus:text-gray-500 focus:bg-white focus:border-sky-500 focus:outline-none;
+            }
+
+            .btn-filter {
+                @apply w-fit ml-16 border-2 border-gray-400 font-semibold text-gray-500 rounded-lg px-3 py-1.5;
+            }
+        }
+    }
+}
