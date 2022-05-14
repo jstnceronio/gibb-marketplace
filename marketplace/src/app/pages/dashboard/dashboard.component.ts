@@ -12,10 +12,6 @@ import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  /* FONTAWESOME ICONS*/
-  faUserAstronaut = faUserAstronaut;
-  faThumbsUp = faThumbsUp;
-  faComments = faComments;
 
   constructor(public auth: AuthService, private router: Router, private dataService: DataService) { }
 

@@ -16,6 +16,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogoSectionComponent } from './shared/logo-section/logo-section.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { PostComponent } from './shared/post/post.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVaaVZgiDCOLY7GOyVtsqEYlcstEqCKA4",
@@ -37,7 +38,8 @@ const firebaseConfig = {
     LoginComponent,
     DashboardComponent,
     RegisterComponent,
-    LogoSectionComponent
+    LogoSectionComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,

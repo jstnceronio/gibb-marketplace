@@ -1,0 +1,27 @@
+<div class="post">
+    <div class="avatar">
+      <fa-icon [icon]="faUserAstronaut" size="3x"></fa-icon>
+    </div>
+    <div class="content">
+      <div class="title">
+        {{ title }}
+      </div>
+      <div class="subtitle">
+        {{ subtitle }}
+      </div>
+      <div class="text">
+        {{ text }}
+      </div>
+      <div class="action-icons">
+        <div class="like">
+          <fa-icon [icon]="faThumbsUp"></fa-icon>
+          {{ likes }}
+        </div>
+        |
+        <div class="comment">
+          <fa-icon [icon]="faComments"></fa-icon>
+          {{ comments }}
+        </div>
+      </div>
+    </div>
+  </div>
