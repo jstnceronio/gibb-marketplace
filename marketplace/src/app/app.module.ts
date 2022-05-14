@@ -15,6 +15,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogoSectionComponent } from './shared/logo-section/logo-section.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVaaVZgiDCOLY7GOyVtsqEYlcstEqCKA4",
@@ -47,7 +48,8 @@ const firebaseConfig = {
     AngularFireStorageModule, // storage
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

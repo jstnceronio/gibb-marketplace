@@ -14,7 +14,7 @@
   <form action="">
     <div class="field">
       <select class="select">
-            <option selected>Alle tribes</option>
+            <option selected>Alle tribes</option> <!-- TODO: NGFOR* ALL OPTIONS-->
             <option value="1">One</option>
             <option value="2">Two</option>
             <option value="3">Three</option>
@@ -22,7 +22,37 @@
       <button class="btn-filter" type="submit">Filtern</button>
     </div>
   </form>
-  
+</div>
+
+<div class="posts">
+  <!-- TODO: NGFOR* ALL POSTS -->
+  <div class="post">
+    <div class="avatar">
+      <fa-icon [icon]="faUserAstronaut" size="3x"></fa-icon>
+    </div>
+    <div class="content">
+      <div class="title">
+        How to: Überleben in der GIBB
+      </div>
+      <div class="subtitle">
+        Feb 28, 2022, 09:57 AM
+      </div>
+      <div class="text">
+        Das Leben in der GIBB ist herausfordernd, hier habt ihr eine praktische Anleitung zum Durchhalten in der GIBB
+      </div>
+      <div class="action-icons">
+        <div class="like">
+          <fa-icon [icon]="faThumbsUp"></fa-icon>
+          52
+        </div>
+        |
+        <div class="comment">
+          <fa-icon [icon]="faComments"></fa-icon>
+          6
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="auth.user$ | async as user">
