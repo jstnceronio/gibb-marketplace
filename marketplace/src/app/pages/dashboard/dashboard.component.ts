@@ -26,8 +26,8 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  async createPost() {
-    console.log('creating post..')
-    await this.dataService.createPost('body', 'title1', 'memes', 'null', 'null')
+  async createPost(title: string) {
+    // TITLE IS OPTIONAL SO IT MAY BE EMPTY
+    await this.dataService.createPost('body', title, 'memes', 'null', 'null')
   }
 }

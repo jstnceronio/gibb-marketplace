@@ -4,8 +4,8 @@
       Home
     </div>
     <div class="field">
-      <input class="input" type="text" placeholder="Post hinzufügen"/>
-      <button class="btn-submit" type="submit">+</button>
+      <input class="input" type="text" placeholder="Post hinzufügen" #titleInput/>
+      <button class="btn-submit" type="submit" (click)="createPost(titleInput.value)">+</button>
     </div>
   </form>
 </div>
@@ -48,5 +48,4 @@
   </div>
   <hr>
   <button class="button" (click)="auth.signOut()">Sign out</button> <br>
-  <button class="button" (click)="createPost()">Create Post</button>
 </div>

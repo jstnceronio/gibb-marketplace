@@ -26,4 +26,12 @@ export class PostComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // TODO: ADD LIKE & COMMENT FUNCTIONALITIES
+  public addLikeToPost() {
+    alert('I liked the post with title ' + this.title);
+  }
+
+  public addCommentToPost() {
+    alert('I want to comment the post with title ' + this.title);
+  }
 }
