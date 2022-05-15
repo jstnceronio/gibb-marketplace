@@ -13,7 +13,7 @@
     @apply border;
     @apply justify-center;
     @apply h-screen;
-    @apply bg-blue-100;
+    @apply bg-gradient-to-t from-indigo-200 via-red-200 to-yellow-100;
 }
 
 .side .main-heading {
@@ -23,11 +23,11 @@
 .side .main-heading {
     @apply mx-auto;
     @apply text-6xl;
-    @apply text-gray-800;
+    @apply text-white;
     @apply font-bold;
 }
 
 .side .marketplace-logo {
     @apply self-center;
-    @apply py-4;
+    @apply py-16;
 }
