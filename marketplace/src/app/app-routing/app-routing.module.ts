@@ -4,6 +4,7 @@ import { LoginComponent } from '../pages/login/login.component';
 import {DashboardComponent} from "../pages/dashboard/dashboard.component";
 import {AuthGuard} from "../services/auth.guard";
 import {RegisterComponent} from "../pages/register/register.component";
+import { CreateComponent } from '../pages/post/create/create.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,10 @@ const routes: Routes = [
   {
     path: 'register',
     component: RegisterComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'create',
+    component: CreateComponent, canActivate: [AuthGuard]
   },
 ];
 
