@@ -1,0 +1,60 @@
+.container {
+    @apply font-montserrat p-8 w-3/4;
+
+    form {
+        @apply flex justify-between;
+
+        .left {
+            .title {
+                @apply text-2xl font-bold text-gray-500;
+            }
+    
+            .input {
+                @apply text-lg italic mt-8 p-2;
+            }
+    
+            .add-document {
+                @apply text-lg italic text-gray-400;
+    
+                .btn-add-doc {
+                    @apply mt-8 mr-4 border-2 border-gray-400 hover:border-sky-500 text-xl text-gray-400 hover:text-sky-500  w-12 h-12 rounded-full;
+                }
+            }
+        }
+        
+        .right {
+            @apply w-96;
+            .tribes {
+                .select {
+                    @apply
+                    block
+                    w-full
+                    px-2
+                    py-1.5
+                    text-base
+                    font-semibold
+                    text-gray-500
+                    bg-white bg-clip-padding bg-no-repeat
+                    border-2 border-solid border-gray-400
+                    transition
+                    ease-in-out
+                    m-0;
+                    @apply focus:text-gray-500 focus:bg-white focus:border-sky-500 focus:outline-none;
+                }
+            }
+
+            .actions {
+                @apply mt-8 flex justify-between min-w-max;
+
+                .btn-submit {
+                    @apply w-fit bg-sky-50 border-2 border-gray-400 hover:border-sky-500 font-semibold text-gray-500 hover:text-sky-500 rounded-lg px-8 py-1.5;
+                }
+
+                .btn-cancel {
+                    @apply w-fit bg-red-50 border-2 border-gray-400 hover:border-red-300 font-semibold text-gray-500 hover:text-red-300 rounded-lg px-8 py-1.5;
+                }
+            }
+        }
+    }
+}
+
