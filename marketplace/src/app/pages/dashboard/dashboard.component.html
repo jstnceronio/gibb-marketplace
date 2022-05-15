@@ -1,10 +1,51 @@
-This is the dashboard
+<div class="header">
+  <form action="">
+    <div class="title">
+      Home
+    </div>
+    <div class="field">
+      <input class="input" type="text" placeholder="Post hinzufügen" #titleInput/>
+      <button class="btn-submit" type="submit" (click)="createPost(titleInput.value)">+</button>
+    </div>
+  </form>
+</div>
+
+<div class="filter">
+  <form action="">
+    <div class="field">
+      <select class="select">
+            <option selected>Alle tribes</option> <!-- TODO: NGFOR* ALL OPTIONS-->
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+      </select>
+      <button class="btn-filter" type="submit">Filtern</button>
+    </div>
+  </form>
+</div>
+
+<div class="posts">
+  <!-- TODO: *NGFOR ALL POSTS -->
+  <app-post 
+  title="How to: Überleben in der GIBB" 
+  subtitle="Feb 28, 2022, 09:57 AM" 
+  text="Das Leben in der GIBB ist herausfordernd, hier habt ihr eine praktische Anleitung zum Durchhalten in der GIBB"
+  [likes]=52
+  [comments]=3
+  ></app-post>
+  <app-post 
+  title="Lösungen Test Modul 129" 
+  subtitle="Feb 28, 2022, 09:57 AM" 
+  text="Immer wieder gerne ..."
+  [likes]=69
+  [comments]=6
+  ></app-post>
+</div>
 
 <div *ngIf="auth.user$ | async as user">
-  <div class="text-2xl">
+  <div class="text-2xl mt-32">
     Welcome {{ user.username }}
   </div>
   <hr>
   <button class="button" (click)="auth.signOut()">Sign out</button> <br>
-  <button class="button" (click)="createPost()">Create Post</button>
 </div>

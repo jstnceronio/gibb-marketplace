@@ -1,0 +1,31 @@
+.post {
+    @apply flex w-full p-8 border-b border-gray-500;
+
+    .avatar {
+        @apply p-2 h-fit mr-8 text-gray-600;
+    }
+
+    .content {
+        @apply text-gray-500;
+
+        .title {
+            @apply text-xl font-bold;
+        }
+
+        .subtitle {
+            @apply font-semibold;
+        }
+
+        .text {
+            @apply text-sky-500 font-semibold mt-6;
+        }
+
+        .action-icons {
+            @apply flex justify-between mt-4 w-36;
+
+            fa-icon {
+                @apply mr-2 hover:text-sky-500;
+            }
+        }
+    }
+}

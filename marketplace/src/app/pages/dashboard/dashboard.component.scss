@@ -1,0 +1,64 @@
+* {
+    @apply font-montserrat;
+}
+
+.header {
+    @apply border border-gray-400;
+
+    form {
+        @apply w-fit p-8;
+
+        .title {
+            @apply uppercase text-xl text-gray-500 font-bold;  
+          }
+      
+          .field {
+              @apply flex flex-row-reverse justify-start mt-4;
+              
+              .btn-submit {
+                  @apply border-2 border-gray-400 hover:border-sky-500 text-xl text-gray-400 hover:text-sky-500  w-12 h-12 rounded-full;
+              }
+            
+              .input {
+                  @apply font-bold ml-6 p-2;
+              }
+          }
+    }
+}
+
+.filter {
+    @apply border border-gray-500 border-t-0;
+
+    form {
+        @apply w-fit p-8;
+
+        .field {
+            @apply flex justify-start;
+            
+            .select {
+                @apply appearance-none
+                block
+                w-64
+                px-3
+                py-1.5
+                text-base
+                font-semibold
+                text-gray-500
+                bg-white bg-clip-padding bg-no-repeat
+                border-2 border-solid border-gray-400
+                transition
+                ease-in-out
+                m-0;
+                @apply focus:text-gray-500 focus:bg-white focus:border-sky-500 focus:outline-none;
+            }
+
+            .btn-filter {
+                @apply w-fit ml-16 border-2 border-gray-400 hover:border-sky-500 font-semibold text-gray-500 hover:text-sky-500 rounded-lg px-8 py-1.5;
+            }
+        }
+    }
+}
+
+.posts {
+    @apply border border-gray-500 border-y-0;
+}
