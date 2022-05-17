@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {ReactiveFormsModule, FormBuilder, FormControl, FormGroup, NgForm, Validators, } from "@angular/forms";
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class CreateComponent implements OnInit {
 
   public createPostForm!: FormGroup
   
-  constructor(private formBuilder : FormBuilder, private dataService: DataService) { }
+  constructor(private router: Router, private formBuilder : FormBuilder, private dataService: DataService) {
+  }
 
   ngOnInit(): void {
     this.createPostForm = this.formBuilder.group({
@@ -22,6 +24,8 @@ export class CreateComponent implements OnInit {
       content: ['', Validators.required],
       tribe: ['Alle tribes', Validators.required],
     })
+    this._title = history.state.title;
+    this.createPostForm.controls['title'].setValue(this._title)
   }
 
   async pushPost() {
@@ -32,5 +36,10 @@ export class CreateComponent implements OnInit {
 
     await this.dataService.createPost(this._content, this._title, this._tribe, '', '')
     console.log("done")
+    this.router.navigateByUrl('/')
+  }
+
+  goBack() {
+    this.router.navigateByUrl('/')
   }
 }
