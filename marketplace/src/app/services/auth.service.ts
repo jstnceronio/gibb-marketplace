@@ -69,6 +69,8 @@ export class AuthService {
         return console.log('Error while deleting user');
       }
     });
+    var user = firebase.auth().currentUser;
+    await user!.delete();
     return this.router.navigate([''])
   }
 
