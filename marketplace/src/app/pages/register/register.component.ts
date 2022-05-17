@@ -28,7 +28,7 @@ export class RegisterComponent implements OnInit {
   }
 
   async cancelRegistration() {
-    return await this.auth.deleteCurrentUser();
+    return await this.auth.deleteCurrentUser()
   }
 
   async editData() {
