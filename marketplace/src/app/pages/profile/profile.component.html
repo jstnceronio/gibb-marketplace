@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="header">
+        Justin Ceronio
+    </div>
+    <form action="">
+        <div class="left">
+            <div class="firstname">
+                <div class="form-control">
+                    <label class="form-label" for="firstname">
+                      Vorname
+                    </label>
+                    <input class="form-input" id="firstname" type="text" placeholder="Name" formControlName="firstname">
+                </div>
+            </div>
+            <div class="lastname">
+                <div class="form-control">
+                    <label class="form-label" for="lastname">
+                      Nachname
+                    </label>
+                    <input class="form-input" id="lastname" type="text" placeholder="Nachname" formControlName="lastname">
+                </div>
+            </div>
+            <div class="username">
+                <div class="form-control">
+                    <label class="form-label" for="username">
+                        Benutzername
+                    </label>
+                    <input class="form-input" id="username" type="text" placeholder="Benutzername" formControlName="username">
+                </div>
+            </div>
+            <div class="departement">
+                <div class="form-control">
+                    <label class="form-label" for="department">
+                      Abteilung / Klasse
+                    </label>
+                    <input class="form-input" id="department" type="text" placeholder="Abteilung" formControlName="department">
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn-submit" type="submit">Speichern</button>
+                <button class="btn-cancel" type="button">Abbrechen</button>
+            </div>
+        </div>
+        <div class="right">
+            <div class="avatar">
+                <fa-icon [icon]="faUserAstronaut" size="10x"></fa-icon>
+            </div>
+        </div>
+    </form>
+</div>
