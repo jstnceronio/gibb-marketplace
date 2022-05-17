@@ -27,6 +27,10 @@ export class RegisterComponent implements OnInit {
     })
   }
 
+  async cancelRegistration() {
+    return await this.auth.deleteCurrentUser()
+  }
+
   async editData() {
     this._firstname = this.registrationForm.get('firstname')!.value;
     this._lastname = this.registrationForm.get('lastname')!.value;
