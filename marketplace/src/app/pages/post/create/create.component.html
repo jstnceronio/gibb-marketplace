@@ -1,14 +1,14 @@
 <div class="container">
-    <form action="">
+    <form [formGroup]="createPostForm" action="">
         <div class="left">
             <div class="title">
                 Post erstellen
             </div>
-            <div class="add-title">
-                <input class="input" type="text" placeholder="Titel hinzufügen"/>
+            <div  class="add-title">
+                <input formControlName="title" class="input" type="text" placeholder="Titel hinzufügen"/>
             </div>
             <div class="add-content">
-                <input class="input" type="text" placeholder="Inhalt hinzufügen"/>
+                <input formControlName="content" class="input" type="text" placeholder="Inhalt hinzufügen"/>
             </div>
             <div class="add-document">
                 <!-- TODO: ADD FILE PICKER -->
@@ -18,7 +18,7 @@
         </div>
         <div class="right">
             <div class="tribes">
-                <select class="select">
+                <select formControlName="tribe" class="select">
                       <option selected>Alle tribes</option> <!-- TODO: MULTISELECT FUNCTIONALITY AND NGFOR* ALL OPTIONS-->
                       <option value="1">One</option>
                       <option value="2">Two</option>
@@ -26,7 +26,7 @@
                 </select>
             </div>
             <div class="actions">
-                <button class="btn-submit" type="submit">Veröffentlichen</button>
+                <button (click)="pushPost()" class="btn-submit" type="submit">Veröffentlichen</button>
                 <button class="btn-cancel" type="button">Abbrechen</button>
             </div>
         </div>
