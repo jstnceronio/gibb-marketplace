@@ -10,6 +10,7 @@ import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs';
 import { User } from './user.model';
 import { Router } from '@angular/router';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -57,19 +58,6 @@ export class AuthService {
       school: ""
     };
     return userRef.set(data, { merge: true });
-  }
-
-  async deleteCurrentUser() {
-    this.user$.subscribe((user: any) => {
-      if (user) {
-        var userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`user/${user.uid}`);
-        userRef.delete();
-        return console.log("Deleted user sucessfully")
-      } else {
-        return console.log('Error while deleting user');
-      }
-    });
-    return this.router.navigate([''])
   }
 
   editUserData(firstname: string, name: string, username: string, school: string) {
