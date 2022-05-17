@@ -2,9 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
 import { DataService } from 'src/app/services/data.service';
+import { PostComponent } from '../../shared/post/post.component'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +15,7 @@ import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 })
 export class DashboardComponent implements OnInit {
 
+  posts: Array<any> = [];
   constructor(public auth: AuthService, private router: Router, private dataService: DataService) { }
 
   ngOnInit(): void {
@@ -23,7 +26,6 @@ export class DashboardComponent implements OnInit {
       }
     });
      */
-
   }
 
   async createPost(title: string) {
