@@ -33,9 +33,10 @@ export class DashboardComponent implements OnInit {
      */
   }
 
-  async createPost(title: string) {
-    // TITLE IS OPTIONAL SO IT MAY BE EMPTY
-    await this.dataService.createPost('body', title, 'memes', 'null', 'null')
+  async createPostRedirect(title: string) {
+    await this.router.navigateByUrl('/create', {
+      state: { title: title }
+    })
   }
 
   getPosts() {
