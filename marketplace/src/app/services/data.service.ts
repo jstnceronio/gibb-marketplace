@@ -3,15 +3,18 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
 
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
+import { switchMap, Subscription } from 'rxjs';
 import { User } from './user.model';
+import { Post } from '../shared/post/post.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   user$: Observable<User | null | undefined>;
+  posts: Observable<Post[]>;
+  private firestoreSubscription: Subscription | undefined;
 
   constructor(
     private fireStore: AngularFirestore,
@@ -28,6 +31,7 @@ export class DataService {
       }
     })
   );
+    this.posts = this.setPosts();
   }
 
   async createPost(body: string, title: string, tribe: string, document: string, image: string) {
@@ -45,4 +49,19 @@ export class DataService {
       console.log(e);
   })
 }
+
+  setPosts() {
+    return this.fireStore.collection<Post>('post').snapshotChanges().pipe(
+      map((res => res.map(el => {
+        let post = el.payload.doc.data() as Post;
+        post.uid = el.payload.doc.id;
+        return post;
+      })))
+    )
+  }
+
+  getPosts() {
+    return this.posts;
+  }
+  
 }

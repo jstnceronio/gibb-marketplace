@@ -3,7 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
-
+import { Post } from './post.model';
 
 @Component({
   selector: 'app-post',
@@ -24,18 +24,26 @@ export class PostComponent implements OnInit {
   @Input() likes: number = 0;
   @Input() comments: number = 0;
   
-  constructor(private firestore: AngularFirestore) { }
+  isliked: boolean = false;
+  
+  constructor() { }
 
   ngOnInit(): void {
-   
   }
 
+  private getIsliked(): boolean {
+    return this.isliked;
+  }
   // TODO: ADD LIKE & COMMENT FUNCTIONALITIES
   public addLikeToPost() {
-    this.likes = this.likes + 1;
+    if (!this.getIsliked()) {
+      this.likes = this.likes + 1;
+      this.isliked = true;
+    }
   }
 
   public addCommentToPost() {
     this.comments = this.comments + 1;
   }
+  
 }

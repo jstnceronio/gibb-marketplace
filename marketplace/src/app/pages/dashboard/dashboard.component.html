@@ -26,11 +26,13 @@
 
 <div class="posts">
   <!-- TODO: *NGFOR ALL POSTS -->
-  <span *ngFor="let post of posts">
-    <app-post>
-   
+    <app-post *ngFor="let post of posts | async"
+     [title]=post.title
+     [subtitle]=post.tribe
+     [text]=post.body
+     [likes]=post.likes
+     [comments]=post.comments>
     </app-post>
-  </span>
 </div>
 
 <div *ngIf="auth.user$ | async as user">

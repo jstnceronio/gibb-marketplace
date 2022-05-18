@@ -6,7 +6,8 @@ import { PostComponent } from '../../shared/post/post.component'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
-import { Observable } from 'rxjs';
+import { Observable} from 'rxjs';
+import { Post } from '../../shared/post/post.model'
 
 @Component({
   selector: 'app-dashboard',
@@ -15,8 +16,12 @@ import { Observable } from 'rxjs';
 })
 export class DashboardComponent implements OnInit {
 
-  posts: Array<any> = [];
-  constructor(public auth: AuthService, private router: Router, private dataService: DataService) { }
+  posts: Observable<Post[]>;
+
+  constructor(public auth: AuthService, private router: Router, private dataService: DataService) { 
+    this.posts = this.getPosts();
+    console.log(this.posts)
+  }
 
   ngOnInit(): void {
     // EXAMPLE ON HOW TO ACCESS USER IN BACKEND
@@ -31,5 +36,9 @@ export class DashboardComponent implements OnInit {
   async createPost(title: string) {
     // TITLE IS OPTIONAL SO IT MAY BE EMPTY
     await this.dataService.createPost('body', title, 'memes', 'null', 'null')
+  }
+
+  getPosts() {
+    return this.dataService.getPosts();
   }
 }
