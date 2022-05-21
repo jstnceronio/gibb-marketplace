@@ -54,11 +54,13 @@ export class AuthService {
       name: "",
       username: user?.displayName ? user.displayName : "",
       email: user?.email ? user.email : "",
-      school: ""
+      school: "",
+      img: null
     };
     return userRef.set(data, { merge: true });
   }
 
+<<<<<<< HEAD
   async deleteCurrentUser() {
     this.user$.subscribe((user: any) => {
       if (user) {
@@ -75,6 +77,9 @@ export class AuthService {
   }
 
   editUserData(firstname: string, name: string, username: string, school: string) {
+=======
+  editUserData(firstname: string, name: string, username: string, school: string, img?: string) {
+>>>>>>> 20328c4... Enable user to upload avatar
     this.user$.subscribe((user: any) => {
       if (user) {
         const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`user/${user.uid}`);
@@ -85,6 +90,7 @@ export class AuthService {
           username: username,
           email: user.email,
           school: school,
+          img: img,
         };
         userRef.update(data);
         return this.router.navigate([''])
