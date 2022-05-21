@@ -1,4 +1,4 @@
-.container {
+.wrapper {
     @apply font-montserrat p-16;
 
     .header {
@@ -6,13 +6,13 @@
     }
 
     form {
-        @apply flex justify-between mt-8 w-3/4;
+        @apply flex flex-col-reverse lg:flex-row justify-between mt-8 w-full;
 
         .left {
             @apply w-96;
 
             .form-control {
-                @apply py-6;
+                @apply py-4;
             }
               
             .form-label {
@@ -34,11 +34,21 @@
                     @apply w-fit bg-red-50 border-2 border-gray-400 hover:border-red-300 font-semibold text-gray-500 hover:text-red-300 rounded-lg px-8 py-1.5;
                 }
             }
+
+            .text-danger {
+                @apply font-bold text-red-500;
+            }
         }
 
         .right {
+            @apply w-96;
+
             .avatar {
-                @apply h-fit mr-8 text-gray-600 border-4 p-16;
+                @apply h-fit text-gray-600 border-4 p-16 text-center; // TODO: change to items-center when using an img
+            }
+
+            input {
+                @apply mt-4;
             }
         }
     }

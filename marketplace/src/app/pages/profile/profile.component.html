@@ -1,8 +1,8 @@
-<div class="container">
-    <div class="header">
-        Justin Ceronio
+<div class="wrapper">
+    <div class="header" *ngIf="auth.user$ | async as user">
+        {{ user.firstname }} {{ user.name }}
     </div>
-    <form action="">
+    <form name="profileForm" [formGroup]="profileForm" (ngSubmit)="editData()">
         <div class="left">
             <div class="firstname">
                 <div class="form-control">
@@ -10,6 +10,7 @@
                       Vorname
                     </label>
                     <input class="form-input" id="firstname" type="text" placeholder="Name" formControlName="firstname">
+                    <span class="text-danger" *ngIf="profileForm.controls['firstname'].dirty && profileForm.hasError('required', 'firstname')">Dieses Feld ist obligatorisch</span>
                 </div>
             </div>
             <div class="lastname">
@@ -18,6 +19,7 @@
                       Nachname
                     </label>
                     <input class="form-input" id="lastname" type="text" placeholder="Nachname" formControlName="lastname">
+                    <span class="text-danger" *ngIf="profileForm.controls['lastname'].dirty && profileForm.hasError('required', 'lastname')">Dieses Feld ist obligatorisch</span>
                 </div>
             </div>
             <div class="username">
@@ -26,6 +28,7 @@
                         Benutzername
                     </label>
                     <input class="form-input" id="username" type="text" placeholder="Benutzername" formControlName="username">
+                    <span class="text-danger" *ngIf="profileForm.controls['username'].dirty && profileForm.hasError('required', 'username')">Dieses Feld ist obligatorisch</span>
                 </div>
             </div>
             <div class="departement">
@@ -34,16 +37,25 @@
                       Abteilung / Klasse
                     </label>
                     <input class="form-input" id="department" type="text" placeholder="Abteilung" formControlName="department">
+                    <span class="text-danger" *ngIf="profileForm.controls['department'].dirty && profileForm.hasError('required', 'department')">Dieses Feld ist obligatorisch</span>
                 </div>
             </div>
             <div class="actions">
-                <button class="btn-submit" type="submit">Speichern</button>
-                <button class="btn-cancel" type="button">Abbrechen</button>
+                <button class="btn-submit" type="submit" (click)="editData()" [disabled]="!profileForm.valid">Speichern</button>
+                <button class="btn-cancel" type="button" [disabled]="!profileForm.dirty">Abbrechen</button>
             </div>
         </div>
         <div class="right">
             <div class="avatar">
-                <fa-icon [icon]="faUserAstronaut" size="10x"></fa-icon>
+                <div *ngIf="filePath && filePath !== ''; else placeholder">
+                    <img [src]="filePath">
+                </div>
+                <ng-template #placeholder>
+                    <fa-icon [icon]="faUserAstronaut" size="10x"></fa-icon>
+                </ng-template>
+            </div>
+            <div class="form-group">
+                <input type="file" accept="image/*" id="img" (change)="imagePreview($event)" />
             </div>
         </div>
     </form>
