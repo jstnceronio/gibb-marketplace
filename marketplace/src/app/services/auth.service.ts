@@ -60,7 +60,6 @@ export class AuthService {
     return userRef.set(data, { merge: true });
   }
 
-<<<<<<< HEAD
   async deleteCurrentUser() {
     this.user$.subscribe((user: any) => {
       if (user) {
@@ -76,10 +75,7 @@ export class AuthService {
     return this.router.navigate([''])
   }
 
-  editUserData(firstname: string, name: string, username: string, school: string) {
-=======
   editUserData(firstname: string, name: string, username: string, school: string, img?: string) {
->>>>>>> 20328c4... Enable user to upload avatar
     this.user$.subscribe((user: any) => {
       if (user) {
         const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`user/${user.uid}`);
