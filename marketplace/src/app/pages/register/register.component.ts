@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from "../../services/auth.service";
 import {Router} from "@angular/router";
-import {ReactiveFormsModule, FormBuilder, FormControl, FormGroup, NgForm, Validators, } from "@angular/forms";
-;
+import {FormBuilder, FormGroup, Validators, } from "@angular/forms";
 
 @Component({
   selector: 'app-register',
@@ -14,8 +13,8 @@ export class RegisterComponent implements OnInit {
   public _lastname = ' ';
   public _username = ' ';
   public _department = ' ';
-
   public registrationForm!: FormGroup
+
   constructor(public auth: AuthService, public router: Router, private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
@@ -24,7 +23,7 @@ export class RegisterComponent implements OnInit {
       lastname: ['', Validators.required],
       username: ['', Validators.required],
       department: ['', Validators.required]
-    })
+    });
   }
 
   async cancelRegistration() {
@@ -37,6 +36,6 @@ export class RegisterComponent implements OnInit {
     this._username = this.registrationForm.get('username')!.value;
     this._department = this.registrationForm.get('department')!.value;
 
-    return await this.auth.editUserData(this._firstname, this._lastname, this._username, this._department)
+    return await this.auth.editUserData(this._firstname, this._lastname, this._username, this._department);
   }
 }
