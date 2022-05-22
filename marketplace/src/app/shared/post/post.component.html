@@ -23,5 +23,14 @@
           {{ comments }}
         </div>
       </div>
+      <div class="comments">
+        <app-comment *ngFor="let comment of commentsOfPost | async" 
+          [user]="comment.user" 
+          [body]="comment.body">
+        </app-comment>
+        <app-comment-form 
+          [postId]="uid" (newComment)="addCommentToPost()">
+        </app-comment-form>
+      </div>
     </div>
   </div>

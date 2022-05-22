@@ -19,6 +19,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PostComponent } from './shared/post/post.component';
 import { CreateComponent } from './pages/post/create/create.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { CommentComponent } from './comment/comment.component';
+import { CommentFormComponent } from './comment-form/comment-form.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVaaVZgiDCOLY7GOyVtsqEYlcstEqCKA4",
@@ -43,7 +45,9 @@ const firebaseConfig = {
     LogoSectionComponent,
     PostComponent,
     CreateComponent,
-    ProfileComponent
+    ProfileComponent,
+    CommentComponent,
+    CommentFormComponent
   ],
   imports: [
     BrowserModule,

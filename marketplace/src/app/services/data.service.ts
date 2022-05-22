@@ -7,7 +7,7 @@ import { map, Observable, of } from 'rxjs';
 import { switchMap, Subscription } from 'rxjs';
 import { User } from './user.model';
 import { Post } from '../shared/post/post.model';
-
+import { Comment } from '../comment/comment.model'
 @Injectable({
   providedIn: 'root'
 })
@@ -63,9 +63,53 @@ export class DataService {
     return this.posts;
   }
   
-  async editPostData(uid: string, likes: number, comments: number) {
+  async editPostLikes(uid: string, likes: number) {
     this.fireStore.doc(`post/${uid}`).update({likes:likes});
+  }
+
+  async editPostComments(uid: string, comments: number) {
     this.fireStore.doc(`post/${uid}`).update({comments:comments});
+  }
+  
+  getComments(postId: string) {
+    let comments =  this.fireStore
+      .collection<Comment>('comment')
+      .snapshotChanges()
+      .pipe(
+        map((res) =>
+          res.map((el) => {
+            let comment = el.payload.doc
+              .data() as Comment;
+            comment.uid = el.payload.doc.id;
+            return comment;
+          })
+        )
+      );
+    comments.subscribe(comments =>
+      comments.filter(comment => comment.parentId === postId)
+    );
+    return comments;
+  }
+
+  async createComment(parentId: string, body: string) {
+    this.fireStore
+      .collection('comment')
+      .add({
+        user: this.getUsername(),
+        parentId: parentId,
+        body: body,
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    this.user$.subscribe
+  }
+
+  getUsername(): string {
+    this.user$.subscribe(user => {
+      return user.username
+    })
+    return "";
   }
 
 }

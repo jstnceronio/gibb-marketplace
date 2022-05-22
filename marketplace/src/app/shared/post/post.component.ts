@@ -2,8 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
+import { Observable } from 'rxjs';
 import { DataService } from '../../services/data.service'
-
+import { Comment } from '../../comment/comment.model'
+import { filter } from 'rxjs/operators';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -25,8 +27,11 @@ export class PostComponent implements OnInit {
   @Input() uid: string='';
   
   private isliked: boolean = false;
+  private commentsOfPost: Observable<Comment[]> | null;
   
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) { 
+    this.commentsOfPost = dataService.getComments(this.uid);
+  }
 
   ngOnInit(): void {
   }
@@ -34,13 +39,13 @@ export class PostComponent implements OnInit {
   // TODO: ADD LIKE & COMMENT FUNCTIONALITIES
   async addLikeToPost() {
     if (this.isliked) {
-      return await this.removeLikeFromPost();
+      return this.removeLikeFromPost();
     }
     else {
       this.likes = this.likes + 1;
       this.isliked = true;
       //window.alert(this.isliked + " and Likes: " + this.likes);
-      //return await this.editPostData(this.uid, this.likes, this.comments);
+      return await this.dataService.editPostLikes(this.uid, this.likes);
     }
   }
 
@@ -48,14 +53,11 @@ export class PostComponent implements OnInit {
     this.likes = this.likes - 1;
     this.isliked = false;
     //window.alert(this.isliked + " and Likes: " + this.likes);
-    //return await this.editPostData(this.uid, this.likes, this.comments);
+    return await this.dataService.editPostLikes(this.uid, this.likes);
   }
 
-  public addCommentToPost() {
+  async addCommentToPost() {
     this.comments = this.comments + 1;
-  }
-
-  async editPostData(uid: string, likes: number, comments: number) {
-    await this.dataService.editPostData(uid, likes, comments);
+    return await this.dataService.editPostComments(this.uid, this.comments);
   }
 }
