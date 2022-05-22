@@ -42,4 +42,9 @@ export class DashboardComponent implements OnInit {
   getPosts() {
     return this.dataService.getPosts();
   }
+  updatePost() {
+    //return this.posts.filter(t => !t.doneDate).length / this.todoListService.todos.length * 100;
+    
+  }
+  
 }

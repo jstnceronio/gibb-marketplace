@@ -27,11 +27,12 @@
 <div class="posts">
   <!-- TODO: *NGFOR ALL POSTS -->
     <app-post *ngFor="let post of posts | async"
-     [title]=post.title
-     [subtitle]=post.tribe
-     [text]=post.body
-     [likes]=post.likes
-     [comments]=post.comments>
+     [title]="post.title"
+     [subtitle]="post.tribe"
+     [text]="post.body"
+     [likes]="post.likes"
+     [comments]="post.comments"
+     [uid]="post.uid">
     </app-post>
 </div>
 

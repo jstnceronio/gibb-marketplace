@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
-import { Post } from './post.model';
+import { DataService } from '../../services/data.service'
 
 @Component({
   selector: 'app-post',
@@ -23,27 +22,40 @@ export class PostComponent implements OnInit {
   @Input() text: string = '';
   @Input() likes: number = 0;
   @Input() comments: number = 0;
+  @Input() uid: string='';
   
-  isliked: boolean = false;
+  private isliked: boolean = false;
   
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit(): void {
   }
 
-  private getIsliked(): boolean {
-    return this.isliked;
-  }
   // TODO: ADD LIKE & COMMENT FUNCTIONALITIES
-  public addLikeToPost() {
-    if (!this.getIsliked()) {
+  async addLikeToPost() {
+    if (this.isliked) {
+      return await this.removeLikeFromPost();
+    }
+    else {
       this.likes = this.likes + 1;
       this.isliked = true;
+      //window.alert(this.isliked + " and Likes: " + this.likes);
+      //return await this.editPostData(this.uid, this.likes, this.comments);
     }
+  }
+
+  async removeLikeFromPost() {
+    this.likes = this.likes - 1;
+    this.isliked = false;
+    //window.alert(this.isliked + " and Likes: " + this.likes);
+    //return await this.editPostData(this.uid, this.likes, this.comments);
   }
 
   public addCommentToPost() {
     this.comments = this.comments + 1;
   }
-  
+
+  async editPostData(uid: string, likes: number, comments: number) {
+    await this.dataService.editPostData(uid, likes, comments);
+  }
 }

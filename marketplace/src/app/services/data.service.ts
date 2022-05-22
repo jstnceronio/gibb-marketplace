@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
 
 import { map, Observable, of } from 'rxjs';
@@ -14,7 +14,6 @@ import { Post } from '../shared/post/post.model';
 export class DataService {
   user$: Observable<User | null | undefined>;
   posts: Observable<Post[]>;
-  private firestoreSubscription: Subscription | undefined;
 
   constructor(
     private fireStore: AngularFirestore,
@@ -64,4 +63,9 @@ export class DataService {
     return this.posts;
   }
   
+  async editPostData(uid: string, likes: number, comments: number) {
+    this.fireStore.doc(`post/${uid}`).update({likes:likes});
+    this.fireStore.doc(`post/${uid}`).update({comments:comments});
+  }
+
 }
