@@ -1,0 +1,11 @@
+.main-app {
+  @apply flex;
+  @apply flex-row;
+}
+
+.main-app .main-content {
+  @apply flex;
+  @apply flex-col;
+  @apply w-full;
+  @apply h-screen;
+}
