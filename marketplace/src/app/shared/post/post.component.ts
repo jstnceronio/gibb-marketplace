@@ -4,7 +4,7 @@ import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { DataService } from '../../services/data.service'
-import { Comment } from '../../comment/comment.model'
+import { Comment } from '../../pages/post/comment/comment.model'
 import { filter, map } from 'rxjs/operators';
 @Component({
   selector: 'app-post',

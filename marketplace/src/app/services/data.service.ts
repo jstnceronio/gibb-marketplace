@@ -7,7 +7,7 @@ import { map, Observable, of } from 'rxjs';
 import { switchMap, Subscription } from 'rxjs';
 import { User } from './user.model';
 import { Post } from '../shared/post/post.model';
-import { Comment } from '../comment/comment.model'
+import { Comment } from '../pages/post/comment/comment.model'
 @Injectable({
   providedIn: 'root'
 })

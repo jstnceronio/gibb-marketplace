@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import {FormBuilder, FormGroup, Validators, } from "@angular/forms";
-import { DataService } from '../services/data.service'
+import { DataService } from '../../../services/data.service'
 
 @Component({
   selector: 'app-comment-form',
