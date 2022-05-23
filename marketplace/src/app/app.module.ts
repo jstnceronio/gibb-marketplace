@@ -15,6 +15,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogoSectionComponent } from './shared/logo-section/logo-section.component';
+import { SideBarComponent } from './shared/side-bar/side-bar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PostComponent } from './shared/post/post.component';
 import { CreateComponent } from './pages/post/create/create.component';
@@ -43,6 +44,7 @@ const firebaseConfig = {
     DashboardComponent,
     RegisterComponent,
     LogoSectionComponent,
+    SideBarComponent,
     PostComponent,
     CreateComponent,
     ProfileComponent,

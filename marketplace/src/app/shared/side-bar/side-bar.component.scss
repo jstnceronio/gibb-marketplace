@@ -1,0 +1,128 @@
+.side-bar {
+  @apply flex;
+  @apply flex-col;
+  @apply w-auto;
+  @apply min-w-[280px];
+  @apply h-full;
+  @apply border-r-[1px];
+  @apply border-r-gray-200;
+}
+
+.side-bar .logo-wrapper {
+  @apply flex;
+  @apply flex-row;
+  @apply justify-center;
+  @apply px-2;
+  @apply py-4;
+  @apply border-b-2;
+  @apply border-b-gray-200;
+  @apply rounded-sm;
+  @apply mx-2;
+
+  .marketplace-logo-wrapper {
+      @apply flex;
+      @apply flex-col;
+
+      .marketplace-logo {
+          @apply flex;
+          @apply max-w-[96px];
+          @apply h-auto;
+      }
+  }
+}
+
+.side-bar .nav-list {
+  @apply flex;
+  @apply flex-col;
+  @apply py-6;
+  @apply gap-8;
+  @apply w-full;
+  @apply items-center;
+
+  .nav-link-button {
+    @apply flex;
+    @apply flex-row;
+    @apply items-center;
+    @apply gap-6;
+    @apply px-8;
+    @apply py-4;
+    @apply rounded-md;
+    @apply hover:bg-gray-100;
+    @apply transition-all;
+
+    .nav-link-icon-wrapper {
+      @apply flex;
+      @apply flex-col;
+      @apply self-center;
+    }
+
+    .nav-link-text {
+      @apply flex;
+      @apply flex-col;
+      @apply self-center;
+      @apply px-2;
+      @apply text-xl;
+    }
+  }
+}
+
+.side-bar .spacer {
+  @apply flex;
+  @apply flex-col;
+  @apply grow;
+  @apply h-full;
+}
+
+.side-bar .user-info {
+  @apply flex;
+  @apply flex-col;
+  @apply w-full;
+  @apply min-h-[96px];
+  @apply border-t-2;
+
+  .user-info-button {
+    @apply flex;
+    @apply flex-row;
+    @apply w-full;
+    @apply h-full;
+    @apply align-middle;
+    @apply justify-between;
+
+    .user-icon-wrapper {
+      @apply flex;
+      @apply flex-col;
+      @apply h-full;
+      @apply min-w-[96px];
+      @apply justify-center;
+      @apply align-middle;
+
+      .user-icon {
+        @apply flex;
+        @apply flex-col;
+        @apply justify-center;
+        @apply align-middle;
+        @apply self-center;
+        @apply min-w-[64px];
+        @apply max-w-[96px];
+        @apply min-h-[64px];
+        @apply max-h-[96px];
+      }
+    }
+
+    .profile-info {
+      @apply flex;
+      @apply flex-col;
+      @apply h-full;
+      @apply self-center;
+      @apply justify-evenly;
+      @apply grow;
+
+      .profile-header {
+        @apply flex;
+        @apply flex-col;
+        @apply font-bold;
+        @apply text-lg;
+      }
+    }
+  }
+}
