@@ -36,3 +36,7 @@
 .main-grid .side.other-side .main-heading {
     @apply text-center;
 }
+
+.button .button-logo {
+  filter: brightness(0) invert(1);
+}
