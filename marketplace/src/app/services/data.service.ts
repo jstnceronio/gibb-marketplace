@@ -72,7 +72,7 @@ export class DataService {
   }
   
   getComments(postId: string) {
-    let comments =  this.fireStore
+    return this.fireStore
       .collection<Comment>('comment')
       .snapshotChanges()
       .pipe(
@@ -85,17 +85,15 @@ export class DataService {
           })
         )
       );
-    comments.subscribe(comments =>
-      comments.filter(comment => comment.parentId === postId)
-    );
-    return comments;
+    
   }
 
   async createComment(parentId: string, body: string) {
+    var user = firebase.auth().currentUser;
     this.fireStore
       .collection('comment')
       .add({
-        user: this.getUsername(),
+        user: user?.displayName,
         parentId: parentId,
         body: body,
       })
@@ -104,12 +102,4 @@ export class DataService {
       });
     this.user$.subscribe
   }
-
-  getUsername(): string {
-    this.user$.subscribe(user => {
-      return user.username
-    })
-    return "";
-  }
-
 }

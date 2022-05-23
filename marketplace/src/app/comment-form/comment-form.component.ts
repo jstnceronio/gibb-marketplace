@@ -24,6 +24,6 @@ export class CommentFormComponent implements OnInit {
   async createComment() {
     this.commentbody = this.commentForm.get('body')!.value;
     this.dataService.createComment(this.postId, this.commentbody);
-    this.newComment.emit();
+    return this.newComment.emit();
   }
 }

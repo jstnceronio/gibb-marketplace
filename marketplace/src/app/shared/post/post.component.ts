@@ -5,7 +5,7 @@ import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { DataService } from '../../services/data.service'
 import { Comment } from '../../comment/comment.model'
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -27,10 +27,11 @@ export class PostComponent implements OnInit {
   @Input() uid: string='';
   
   private isliked: boolean = false;
-  private commentsOfPost: Observable<Comment[]> | null;
+  public commentsOfPost: Observable<Comment[]> | null;
   
   constructor(private dataService: DataService) { 
     this.commentsOfPost = dataService.getComments(this.uid);
+    this.commentsOfPost = this.filterComments();
   }
 
   ngOnInit(): void {
@@ -59,5 +60,13 @@ export class PostComponent implements OnInit {
   async addCommentToPost() {
     this.comments = this.comments + 1;
     return await this.dataService.editPostComments(this.uid, this.comments);
+  }
+
+  filterComments() {
+    let newcomments = this.commentsOfPost.pipe (
+      map(items => 
+       items.filter(comment => comment.parentId === this.uid)) 
+    );
+    return newcomments;  
   }
 }
