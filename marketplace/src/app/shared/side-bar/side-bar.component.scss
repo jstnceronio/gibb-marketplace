@@ -4,9 +4,7 @@
   @apply w-auto;
   @apply min-w-[280px];
   @apply border-r-[1px];
-  @apply border-r-blue-200;
   @apply h-full;
-  @apply sticky;
 }
 
 .sticky-wrapper {
@@ -77,10 +75,10 @@
 }
 
 .side-bar .spacer {
+  @apply h-[20%];
   @apply flex;
   @apply flex-col;
   @apply grow;
-  @apply h-[60%];
 }
 
 .side-bar .user-info {
@@ -88,7 +86,8 @@
   @apply flex-col;
   @apply w-full;
   @apply min-h-[96px];
-  @apply border-t-2;
+  @apply border-y-2;
+  @apply self-end;
 
   .user-info-button {
     @apply flex;
@@ -99,6 +98,7 @@
     @apply justify-between;
 
     .user-icon-wrapper {
+      @apply mt-4;
       @apply flex;
       @apply flex-col;
       @apply h-full;
