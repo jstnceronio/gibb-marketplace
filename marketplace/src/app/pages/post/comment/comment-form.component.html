@@ -3,12 +3,9 @@
     <!-- Body -->
     <div class="form-control">
       <input class="form-input" id="body" type="text" placeholder="Type your Comment here" formControlName="body"/>
-      <span class="text-danger" *ngIf="commentForm.controls['body'].dirty && commentForm.hasError('required', 'body')">
-          You need to type something in this field
-      </span>
     </div>
     <div class="flex items-center justify-between">
-      <button class="btn-continue hover:bg-blue-700" type="submit" [disabled]="!commentForm.valid">
+      <button class="btn-continue" type="submit" [disabled]="!commentForm.valid">
         Kommentieren!
       </button>
     </div>
