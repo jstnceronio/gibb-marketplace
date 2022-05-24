@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from "../../services/auth.service";
 import { Router } from "@angular/router";
-import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
+import { faUserAstronaut, faHouse, faIdCard, faBook } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -12,6 +12,9 @@ import { Observable } from 'rxjs';
 export class SideBarComponent implements OnInit {
 
   faUserAstronaut = faUserAstronaut;
+  faHouse = faHouse;
+  faIdCard = faIdCard;
+  faBook = faBook;
 
   public isLoggedIn = false;
 

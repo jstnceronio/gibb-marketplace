@@ -34,6 +34,7 @@
 .side-bar .nav-list {
   @apply flex;
   @apply flex-col;
+  @apply px-6;
   @apply py-6;
   @apply gap-8;
   @apply w-full;
@@ -43,17 +44,20 @@
     @apply flex;
     @apply flex-row;
     @apply items-center;
+    @apply w-full;
     @apply gap-6;
     @apply px-8;
     @apply py-4;
     @apply rounded-md;
     @apply hover:bg-gray-100;
     @apply transition-all;
+    @apply hover:text-sky-500;
 
     .nav-link-icon-wrapper {
       @apply flex;
       @apply flex-col;
       @apply self-center;
+
     }
 
     .nav-link-text {
