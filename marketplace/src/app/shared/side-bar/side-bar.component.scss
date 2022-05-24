@@ -3,9 +3,15 @@
   @apply flex-col;
   @apply w-auto;
   @apply min-w-[280px];
-  @apply h-full;
   @apply border-r-[1px];
-  @apply border-r-gray-200;
+  @apply border-r-blue-200;
+  @apply h-full;
+  @apply sticky;
+}
+
+.sticky-wrapper {
+  @apply sticky;
+  @apply top-0;
 }
 
 .side-bar .logo-wrapper {
@@ -74,7 +80,7 @@
   @apply flex;
   @apply flex-col;
   @apply grow;
-  @apply h-full;
+  @apply h-[60%];
 }
 
 .side-bar .user-info {
