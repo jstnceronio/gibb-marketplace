@@ -86,7 +86,7 @@ export class AuthService {
           username: username,
           email: user.email,
           school: school,
-          img: img,
+          img: img || 'undefined',
         };
         userRef.update(data);
         return this.router.navigate([''])
