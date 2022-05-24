@@ -32,7 +32,6 @@ export class DataService {
 
   async createPost(body: string, title: string, tribe: string, document: string, image: string) {
     var user = firebase.auth().currentUser;
-
     this.fireStore.collection('post').add({
       body: body,
       title: title,
@@ -40,9 +39,10 @@ export class DataService {
       document: document,
       user: user?.uid,
       image: image
-  })
-  .catch(e => {
+    })
+    .catch(e => {
       console.log(e);
-  })
-}
+    })
+
+  }
 }
