@@ -19,9 +19,18 @@
         </div>
         |
         <div class="comment">
-          <fa-icon [icon]="faComments" (click)="addCommentToPost()"></fa-icon>
+          <fa-icon [icon]="faComments"></fa-icon>
           {{ comments }}
         </div>
+      </div>
+      <div class="comments">
+        <app-comment *ngFor="let comment of commentsOfPost | async" 
+          [user]="comment.user" 
+          [body]="comment.body">
+        </app-comment>
+        <app-comment-form 
+          [postId]="uid" (newComment)="addCommentToPost()">
+        </app-comment-form>
       </div>
     </div>
   </div>

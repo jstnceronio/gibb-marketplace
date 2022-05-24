@@ -26,20 +26,14 @@
 
 <div class="posts">
   <!-- TODO: *NGFOR ALL POSTS -->
-  <app-post 
-  title="How to: Überleben in der GIBB" 
-  subtitle="Feb 28, 2022, 09:57 AM" 
-  text="Das Leben in der GIBB ist herausfordernd, hier habt ihr eine praktische Anleitung zum Durchhalten in der GIBB"
-  [likes]=52
-  [comments]=3
-  ></app-post>
-  <app-post 
-  title="Lösungen Test Modul 129" 
-  subtitle="Feb 28, 2022, 09:57 AM" 
-  text="Immer wieder gerne ..."
-  [likes]=69
-  [comments]=6
-  ></app-post>
+    <app-post *ngFor="let post of posts | async"
+     [title]="post.title"
+     [subtitle]="post.tribe"
+     [text]="post.body"
+     [likes]="post.likes"
+     [comments]="post.comments"
+     [uid]="post.uid">
+    </app-post>
 </div>
 
 <div *ngIf="auth.user$ | async as user">

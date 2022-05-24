@@ -1,17 +1,19 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
 
-import { Observable, of } from 'rxjs';
-import { switchMap } from 'rxjs';
+import { map, Observable, of } from 'rxjs';
+import { switchMap, Subscription } from 'rxjs';
 import { User } from './user.model';
-
+import { Post } from '../shared/post/post.model';
+import { Comment } from '../pages/post/comment/comment.model'
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
   user$: Observable<User | null | undefined>;
+  posts: Observable<Post[]>;
 
   constructor(
     private fireStore: AngularFirestore,
@@ -28,6 +30,7 @@ export class DataService {
       }
     })
   );
+    this.posts = this.setPosts();
   }
 
   async createPost(body: string, title: string, tribe: string, document: string, image: string) {
@@ -42,7 +45,60 @@ export class DataService {
     })
     .catch(e => {
       console.log(e);
-    })
+  })
+}
 
+  setPosts() {
+    return this.fireStore.collection<Post>('post').snapshotChanges().pipe(
+      map((res => res.map(el => {
+        let post = el.payload.doc.data() as Post;
+        post.uid = el.payload.doc.id;
+        return post;
+      })))
+    )
+  }
+
+  getPosts() {
+    return this.posts;
+  }
+  
+  async editPostLikes(uid: string, likes: number) {
+    this.fireStore.doc(`post/${uid}`).update({likes:likes});
+  }
+
+  async editPostComments(uid: string, comments: number) {
+    this.fireStore.doc(`post/${uid}`).update({comments:comments});
+  }
+  
+  getComments(postId: string) {
+    return this.fireStore
+      .collection<Comment>('comment')
+      .snapshotChanges()
+      .pipe(
+        map((res) =>
+          res.map((el) => {
+            let comment = el.payload.doc
+              .data() as Comment;
+            comment.uid = el.payload.doc.id;
+            return comment;
+          })
+        )
+      );
+    
+  }
+
+  async createComment(parentId: string, body: string) {
+    var user = firebase.auth().currentUser;
+    this.fireStore
+      .collection('comment')
+      .add({
+        user: user?.displayName,
+        parentId: parentId,
+        body: body,
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+    this.user$.subscribe
   }
 }

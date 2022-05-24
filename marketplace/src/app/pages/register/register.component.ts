@@ -13,7 +13,7 @@ export class RegisterComponent implements OnInit {
   public _lastname = ' ';
   public _username = ' ';
   public _department = ' ';
-  public registrationForm!: FormGroup
+  public registrationForm!: FormGroup;
 
   constructor(public auth: AuthService, public router: Router, private formBuilder : FormBuilder) { }
 
