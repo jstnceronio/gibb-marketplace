@@ -27,14 +27,16 @@
     </a>
   </div>
   <div class="spacer"></div>
-  <div class="user-info">
+  <div class="user-info" *ngIf="auth.user$ | async as user">
     <a class="user-info-button" routerLink="/">
       <div class="user-icon-wrapper">
         <fa-icon class="user-icon" [icon]="faUserAstronaut" size="3x"></fa-icon>
       </div>
       <div class="profile-info">
-        <h4 class="profile-header">Name des Users</h4>
-        <p class="profile-text">Something idk</p>
+        <h4 class="profile-header">
+          {{ user.username }}
+        </h4>
+        <button class="sign-out" (click)="auth.signOut()">Sign out</button> <br>
       </div>
     </a>
   </div>

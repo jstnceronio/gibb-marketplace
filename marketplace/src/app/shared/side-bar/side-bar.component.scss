@@ -114,17 +114,18 @@
     }
 
     .profile-info {
+      @apply mt-6;
       @apply flex;
       @apply flex-col;
       @apply h-full;
+      @apply font-bold;
       @apply self-center;
       @apply justify-evenly;
       @apply grow;
 
-      .profile-header {
+      .sign-out {
         @apply flex;
         @apply flex-col;
-        @apply font-bold;
         @apply text-lg;
       }
     }
