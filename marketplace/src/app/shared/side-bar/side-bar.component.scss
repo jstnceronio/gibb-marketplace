@@ -3,9 +3,13 @@
   @apply flex-col;
   @apply w-auto;
   @apply min-w-[280px];
-  @apply h-full;
   @apply border-r-[1px];
-  @apply border-r-gray-200;
+  @apply h-full;
+}
+
+.sticky-wrapper {
+  @apply sticky;
+  @apply top-0;
 }
 
 .side-bar .logo-wrapper {
@@ -34,6 +38,7 @@
 .side-bar .nav-list {
   @apply flex;
   @apply flex-col;
+  @apply px-6;
   @apply py-6;
   @apply gap-8;
   @apply w-full;
@@ -43,17 +48,20 @@
     @apply flex;
     @apply flex-row;
     @apply items-center;
+    @apply w-full;
     @apply gap-6;
     @apply px-8;
     @apply py-4;
     @apply rounded-md;
     @apply hover:bg-gray-100;
     @apply transition-all;
+    @apply hover:text-sky-500;
 
     .nav-link-icon-wrapper {
       @apply flex;
       @apply flex-col;
       @apply self-center;
+
     }
 
     .nav-link-text {
@@ -67,10 +75,10 @@
 }
 
 .side-bar .spacer {
+  @apply h-[20%];
   @apply flex;
   @apply flex-col;
   @apply grow;
-  @apply h-full;
 }
 
 .side-bar .user-info {
@@ -78,7 +86,8 @@
   @apply flex-col;
   @apply w-full;
   @apply min-h-[96px];
-  @apply border-t-2;
+  @apply border-y-2;
+  @apply self-end;
 
   .user-info-button {
     @apply flex;
@@ -89,6 +98,7 @@
     @apply justify-between;
 
     .user-icon-wrapper {
+      @apply mt-4;
       @apply flex;
       @apply flex-col;
       @apply h-full;
@@ -110,17 +120,18 @@
     }
 
     .profile-info {
+      @apply mt-6;
       @apply flex;
       @apply flex-col;
       @apply h-full;
+      @apply font-bold;
       @apply self-center;
       @apply justify-evenly;
       @apply grow;
 
-      .profile-header {
+      .sign-out {
         @apply flex;
         @apply flex-col;
-        @apply font-bold;
         @apply text-lg;
       }
     }
