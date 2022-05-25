@@ -6,8 +6,9 @@ import { PostComponent } from '../../shared/post/post.component'
 import { faThumbsUp } from '@fortawesome/free-solid-svg-icons';
 import { faComments } from '@fortawesome/free-solid-svg-icons';
 import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
-import { Observable} from 'rxjs';
+import { map, Observable} from 'rxjs';
 import { Post } from '../../shared/post/post.model'
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,20 +18,17 @@ import { Post } from '../../shared/post/post.model'
 export class DashboardComponent implements OnInit {
 
   posts: Observable<Post[]>;
+  public filterForm!: FormGroup;
 
-  constructor(public auth: AuthService, private router: Router, private dataService: DataService) { 
+  constructor(public auth: AuthService, private router: Router, private dataService: DataService, private formBuilder : FormBuilder) { 
     this.posts = this.getPosts();
     console.log(this.posts)
   }
 
   ngOnInit(): void {
-    // EXAMPLE ON HOW TO ACCESS USER IN BACKEND
-    /*
-    this.auth.user$.subscribe((user: any) => {
-      if (user) {
-      }
+    this.filterForm = this.formBuilder.group({
+      selectedTribe: ['', Validators.required],
     });
-     */
   }
 
   async createPostRedirect(title: string) {
@@ -42,5 +40,17 @@ export class DashboardComponent implements OnInit {
   getPosts() {
     return this.dataService.getPosts();
   }
-  
+
+  async filterPosts() {
+    let posts = this.getPosts()
+    let tribe = this.filterForm.get('selectedTribe')!.value;
+    if (tribe === "Alle tribes") {
+      return this.posts = posts;
+    }
+    let filteredPosts = posts.pipe (
+      map(items => 
+       items.filter(post => post.tribe === tribe)) 
+    );
+    this.posts =  filteredPosts;
+  }
 }

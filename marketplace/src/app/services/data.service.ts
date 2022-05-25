@@ -41,7 +41,9 @@ export class DataService {
       tribe: tribe,
       document: document,
       user: user?.uid,
-      image: image
+      image: image,
+      likes: 0,
+      comments: 0
     })
     .catch(e => {
       console.log(e);
@@ -101,4 +103,5 @@ export class DataService {
       });
     this.user$.subscribe
   }
+
 }
