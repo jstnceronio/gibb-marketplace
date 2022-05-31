@@ -75,7 +75,7 @@ export class AuthService {
     return this.router.navigate([''])
   }
 
-  async editUserData(firstname: string, name: string, username: string, school: string, img?: string) {
+  editUserData(firstname: string, name: string, username: string, school: string, img?: string) {
     this.user$.subscribe((user: any) => {
       if (user) {
         const userRef: AngularFirestoreDocument<User> = this.fireStore.doc(`user/${user.uid}`);
@@ -89,7 +89,6 @@ export class AuthService {
           img: img || 'undefined',
         };
         userRef.update(data);
-        return this.router.navigate([''])
 
       } else {
         console.log('User not signed in');
