@@ -1,0 +1,13 @@
+<app-post
+    [title]="post.title"
+    [subtitle]="post.tribe"
+    [text]="post.body"
+    [comments]="post.comments"
+    [likes]="post.likes"
+    [uid]="post.uid">
+</app-post>
+<div *ngFor="let comment of comments | async">
+    <b>{{comment.user}}</b>
+    <br>
+    {{comment.body}}
+</div>

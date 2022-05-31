@@ -3,12 +3,11 @@
       <fa-icon [icon]="faUserAstronaut" size="3x"></fa-icon>
     </div>
     <div class="content">
-      <div class="title">
-        {{ title }}
-      </div>
-      <div class="creator">
-        <span class="lead">created by {{ creator }}</span>
-      </div>
+      <a [routerLink]="['/single-view/' + this.uid]">
+        <div class="title">
+          {{ title }}
+        </div>
+      </a>
       <div class="subtitle">
         {{ subtitle }}
       </div>
