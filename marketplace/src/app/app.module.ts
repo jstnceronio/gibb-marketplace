@@ -22,6 +22,7 @@ import { CreateComponent } from './pages/post/create/create.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { CommentComponent } from './pages/post/comment/comment.component';
 import { CommentFormComponent } from './pages/post/comment/comment-form.component';
+import { PostViewComponent } from './pages/post/single-view/post-view/post-view.component';
 
 const firebaseConfig = {
   apiKey: "AIzaSyAVaaVZgiDCOLY7GOyVtsqEYlcstEqCKA4",
@@ -49,7 +50,8 @@ const firebaseConfig = {
     CreateComponent,
     ProfileComponent,
     CommentComponent,
-    CommentFormComponent
+    CommentFormComponent,
+    PostViewComponent
   ],
   imports: [
     BrowserModule,
