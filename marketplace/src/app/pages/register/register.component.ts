@@ -49,4 +49,15 @@ export class RegisterComponent implements OnInit {
 
     return await this.auth.editUserData(this._firstname, this._lastname, this._username, this._department);
   }
+
+  async validateForm() {
+    if (this.registrationForm.invalid) {
+      this.registrationForm.get('firstname').markAsDirty();
+      this.registrationForm.get('lastname').markAsDirty();
+      this.registrationForm.get('username').markAsDirty();
+      this.registrationForm.get('department').markAsDirty();
+      return;
+    }
+    await this.editData()
+}
 }

@@ -39,3 +39,7 @@
 .btn-back {
   @apply inline-block align-baseline font-bold text-sm text-blue-500;
 }
+
+.text-danger {
+  @apply font-bold text-red-500;
+}

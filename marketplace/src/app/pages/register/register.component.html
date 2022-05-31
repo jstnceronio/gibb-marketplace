@@ -4,7 +4,7 @@
     <div class="main-heading">
       Please enter your data
     </div>
-    <form class="form" name="registrationForm" [formGroup]="registrationForm" (ngSubmit)="editData()">
+    <form class="form" name="registrationForm" [formGroup]="registrationForm">
       <div class="form-group">
         <!-- Firstname -->
         <div class="form-control">
@@ -39,7 +39,7 @@
           <span class="text-danger" *ngIf="registrationForm.controls['department'].dirty && registrationForm.hasError('required', 'department')">Department field is required</span>
         </div>
         <div class="flex items-center justify-between">
-          <button class="btn-continue hover:bg-blue-700" type="submit" [disabled]="!registrationForm.valid">
+          <button class="btn-continue hover:bg-blue-700" type="submit" (click)="validateForm()">
             Weiter
           </button>
           <a class="btn-back hover:text-blue-800" href="#" (click)="cancelRegistration()">
