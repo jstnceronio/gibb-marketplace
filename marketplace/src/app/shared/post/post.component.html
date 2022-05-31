@@ -1,10 +1,10 @@
 <div class="post">
-    <div class="user-icon-wrapper avatar" *ngIf="filePath !== 'undefined'; else placeholder">
-      <img [src]="filePath" class="user-icon rounded-full aspect-square w-[48px]">
+    <div class="avatar" *ngIf="filePath !== 'undefined'; else placeholder">
+      <img [src]="filePath" class="rounded-full aspect-square w-[64px]">
     </div>
     <ng-template #placeholder>
-      <div class="user-icon-wrapper avatar">
-        <fa-icon class="user-icon" [icon]="faUserAstronaut" size="3x"></fa-icon>
+      <div class="avatar">
+        <fa-icon [icon]="faUserAstronaut" size="3x"></fa-icon>
       </div>
     </ng-template>
     
