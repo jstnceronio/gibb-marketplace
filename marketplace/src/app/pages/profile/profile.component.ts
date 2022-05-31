@@ -40,6 +40,7 @@ export class ProfileComponent implements OnInit {
     this.profileForm.controls['lastname'].setValue(user.name);
     this.profileForm.controls['username'].setValue(user.username);
     this.profileForm.controls['department'].setValue(user.school);
+    this.filePath = user.img;
   }
 
   private buildForm() {

@@ -18,6 +18,17 @@ export class RegisterComponent implements OnInit {
   constructor(public auth: AuthService, public router: Router, private formBuilder : FormBuilder) { }
 
   ngOnInit(): void {
+    // if user has been registred before navigate to dashboard
+    this.auth.user$.subscribe(
+      user => {
+          if (user.firstname) {
+            this.router.navigate(['/']);
+          } else {
+            console.log('Not registred yet.')
+          }
+      }
+    );
+
     this.registrationForm = this.formBuilder.group({
       firstname: ['', Validators.required],
       lastname: ['', Validators.required],

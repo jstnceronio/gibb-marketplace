@@ -47,7 +47,7 @@
         </div>
         <div class="right">
             <div class="avatar">
-                <div *ngIf="filePath && filePath !== ''; else placeholder">
+                <div *ngIf="filePath !== 'undefined'; else placeholder">
                     <img [src]="filePath">
                 </div>
                 <ng-template #placeholder>

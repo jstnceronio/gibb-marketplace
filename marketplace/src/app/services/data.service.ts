@@ -2,9 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import firebase from 'firebase/compat/app';
-
 import { map, Observable, of } from 'rxjs';
-import { switchMap, Subscription } from 'rxjs';
+import { switchMap, flatMap, Subscription } from 'rxjs';
 import { User } from './user.model';
 import { Post } from '../shared/post/post.model';
 import { Comment } from '../pages/post/comment/comment.model'
@@ -31,6 +30,17 @@ export class DataService {
     })
   );
     this.posts = this.setPosts();
+  }
+
+  // TODO: USE THIS IN POST VIEW
+  async getImageFromUser(name: string) {
+    return this.fireStore
+    .collection("user",ref => ref.where("firstname", "==", name).limit(1))
+    .get()
+    .subscribe(data=>data.forEach(el=> {
+      let res = el.data();
+      return res['img'];
+    }));
   }
 
   async createPost(body: string, title: string, tribe: string, document: string, image: string) {

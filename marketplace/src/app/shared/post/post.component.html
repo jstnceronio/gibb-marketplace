@@ -1,13 +1,22 @@
 <div class="post">
-    <div class="avatar">
-      <fa-icon [icon]="faUserAstronaut" size="3x"></fa-icon>
+    <div class="avatar" *ngIf="filePath !== 'undefined'; else placeholder">
+      <img [src]="filePath" class="rounded-full aspect-square w-[64px]">
     </div>
+    <ng-template #placeholder>
+      <div class="avatar">
+        <fa-icon [icon]="faUserAstronaut" size="3x"></fa-icon>
+      </div>
+    </ng-template>
+    
     <div class="content">
       <a [routerLink]="['/single-view/' + this.uid]">
         <div class="title">
           {{ title }}
         </div>
       </a>
+      <div class="creator">
+        <span class="lead">Created by {{ creator }}</span>
+      </div>
       <div class="subtitle">
         {{ subtitle }}
       </div>
