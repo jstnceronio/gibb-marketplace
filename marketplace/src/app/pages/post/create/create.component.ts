@@ -9,7 +9,7 @@ import { DataService } from 'src/app/services/data.service';
   styleUrls: ['./create.component.scss']
 })
 export class CreateComponent implements OnInit {
-  public _title = ' '
+  public _title = ' ';
   public _content = ' ';
   public _tribe = ' ';
 
