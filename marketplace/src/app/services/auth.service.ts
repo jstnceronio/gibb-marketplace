@@ -75,6 +75,10 @@ export class AuthService {
     return this.router.navigate([''])
   }
 
+  getCurrentUser(): string {
+    return firebase.auth().currentUser.displayName;
+  }
+
   editUserData(firstname: string, name: string, username: string, school: string, img?: string) {
     this.user$.subscribe((user: any) => {
       if (user) {

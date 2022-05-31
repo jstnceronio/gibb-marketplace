@@ -7,6 +7,7 @@ import {RegisterComponent} from "../pages/register/register.component";
 import { CreateComponent } from '../pages/post/create/create.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
 import { PostViewComponent } from '../pages/post/single-view/post-view/post-view.component';
+import { ProfilePostViewComponent } from '../pages/post/profile-post-view/profile-post-view.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'my-posts',
+    component: ProfilePostViewComponent, canActivate: [AuthGuard]
   },
   {
     path: 'single-view/:id',
