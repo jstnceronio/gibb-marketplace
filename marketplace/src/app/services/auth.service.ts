@@ -89,7 +89,6 @@ export class AuthService {
           img: img || 'undefined',
         };
         userRef.update(data);
-        return this.router.navigate([''])
 
       } else {
         console.log('User not signed in');

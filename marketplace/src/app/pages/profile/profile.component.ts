@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  private user: User;
   /* FONTAWESOME ICONS*/
   faUserAstronaut = faUserAstronaut;
   /* FORM VARIABLES */
@@ -23,19 +24,20 @@ export class ProfileComponent implements OnInit {
   fileToUpload: File | null = null;
   filePath = '';
 
-  constructor(public auth: AuthService, public router: Router, private formBuilder : FormBuilder) { }
-
-  ngOnInit(): void {
+  constructor(public auth: AuthService, public router: Router, private formBuilder : FormBuilder) {
     this.buildForm();
-
+    
     this.auth.user$.subscribe((user: any) => {
-      if (user) {        
+      if (user) {
+        this.user = user;
         this.fillUserData(user);
       }
     });
   }
 
-  private fillUserData(user: User) {
+  ngOnInit(): void { }
+
+  fillUserData(user: User) {
     this.profileForm.controls['firstname'].setValue(user.firstname);
     this.profileForm.controls['lastname'].setValue(user.name);
     this.profileForm.controls['username'].setValue(user.username);
@@ -59,7 +61,13 @@ export class ProfileComponent implements OnInit {
     this._username = this.profileForm.get('username')!.value;
     this._department = this.profileForm.get('department')!.value;
 
-    return await this.auth.editUserData(this._firstname, this._lastname, this._username, this._department, this.filePath);
+    await this.auth.editUserData(this._firstname, this._lastname, this._username, this._department, this.filePath);
+    await this.router.navigateByUrl('/')
+    window.location.reload();
+  }
+
+  resetData() {
+    this.fillUserData(this.user)
   }
 
   imagePreview(e) {
