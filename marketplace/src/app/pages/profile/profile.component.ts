@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./profile.component.scss']
 })
 export class ProfileComponent implements OnInit {
+  private user: User;
   /* FONTAWESOME ICONS*/
   faUserAstronaut = faUserAstronaut;
   /* FORM VARIABLES */
@@ -29,7 +30,8 @@ export class ProfileComponent implements OnInit {
     this.buildForm();
 
     this.auth.user$.subscribe((user: any) => {
-      if (user) {        
+      if (user) {
+        this.user = user;
         this.fillUserData(user);
       }
     });
@@ -59,6 +61,10 @@ export class ProfileComponent implements OnInit {
     this._department = this.profileForm.get('department')!.value;
 
     return await this.auth.editUserData(this._firstname, this._lastname, this._username, this._department, this.filePath);
+  }
+
+  resetData() {
+    this.fillUserData(this.user)
   }
 
   imagePreview(e) {

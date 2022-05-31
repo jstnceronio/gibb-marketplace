@@ -2,7 +2,7 @@
     <div class="header" *ngIf="auth.user$ | async as user">
         {{ user.firstname }} {{ user.name }}
     </div>
-    <form name="profileForm" [formGroup]="profileForm" (ngSubmit)="editData()">
+    <form name="profileForm" [formGroup]="profileForm">
         <div class="left">
             <div class="firstname">
                 <div class="form-control">
@@ -42,7 +42,7 @@
             </div>
             <div class="actions">
                 <button class="btn-submit" type="submit" (click)="editData()" [disabled]="!profileForm.valid">Speichern</button>
-                <button class="btn-cancel" type="button" [disabled]="!profileForm.dirty">Abbrechen</button>
+                <button class="btn-cancel" type="button" (click)="resetData()" [disabled]="!profileForm.dirty">Abbrechen</button>
             </div>
         </div>
         <div class="right">
