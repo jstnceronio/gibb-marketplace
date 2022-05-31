@@ -25,6 +25,7 @@ export class PostComponent implements OnInit {
   @Input() likes: number = 0;
   @Input() comments: number = 0;
   @Input() uid: string='';
+  @Input() creator: string = '';
   
   private isliked: boolean = false;
   public commentsOfPost: Observable<Comment[]> | null;

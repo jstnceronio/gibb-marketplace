@@ -41,6 +41,7 @@ export class DataService {
       tribe: tribe,
       document: document,
       user: user?.uid,
+      creator: user?.displayName,
       image: image,
       likes: 0,
       comments: 0
