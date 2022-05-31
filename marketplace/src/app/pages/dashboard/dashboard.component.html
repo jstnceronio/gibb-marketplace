@@ -26,15 +26,13 @@
 
 <div class="posts">
   <div *ngFor="let post of posts | async">
-    <a [routerLink]="['/single-view/' + post.uid]">
-      <app-post
-      [title]="post.title"
-      [subtitle]="post.tribe"
-      [text]="post.body"
-      [likes]="post.likes"
-      [comments]="post.comments"
-      [uid]="post.uid">
-      </app-post>
-    </a>
+    <app-post
+    [title]="post.title"
+    [subtitle]="post.tribe"
+    [text]="post.body"
+    [likes]="post.likes"
+    [comments]="post.comments"
+    [uid]="post.uid">
+    </app-post>
   </div>
 </div>
