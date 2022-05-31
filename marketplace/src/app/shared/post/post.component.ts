@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
 import { DataService } from '../../services/data.service'
 import { Comment } from '../../pages/post/comment/comment.model'
 import { filter, map } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
@@ -29,13 +31,25 @@ export class PostComponent implements OnInit {
   
   private isliked: boolean = false;
   public commentsOfPost: Observable<Comment[]> | null;
-  
-  constructor(private dataService: DataService) { 
+  public filePath = 'undefined';
+
+  constructor(private dataService: DataService, private fireStore: AngularFirestore) { 
     this.commentsOfPost = dataService.getComments(this.uid);
     this.commentsOfPost = this.filterComments();
   }
 
   ngOnInit(): void {
+    // TODO: USE FUNCTION IN DATA SERVICE
+    if (this.creator) { // FOR THE OLD POSTS THAT DON'T HAVE CREATORS YET
+      this.fireStore
+      .collection("user",ref => ref.where("username", "==", this.creator).limit(1))
+      .get()
+      .subscribe(data=>data.forEach(el=> {
+        let res = el.data();
+        this.filePath = res['img'];
+        console.log(this.filePath);
+      }));
+    }
   }
 
   // TODO: ADD LIKE & COMMENT FUNCTIONALITIES

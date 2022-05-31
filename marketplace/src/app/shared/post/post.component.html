@@ -1,13 +1,19 @@
 <div class="post">
-    <div class="avatar">
-      <fa-icon [icon]="faUserAstronaut" size="3x"></fa-icon>
+    <div class="user-icon-wrapper avatar" *ngIf="filePath !== 'undefined'; else placeholder">
+      <img [src]="filePath" class="user-icon rounded-full aspect-square w-[48px]">
     </div>
+    <ng-template #placeholder>
+      <div class="user-icon-wrapper avatar">
+        <fa-icon class="user-icon" [icon]="faUserAstronaut" size="3x"></fa-icon>
+      </div>
+    </ng-template>
+    
     <div class="content">
       <div class="title">
         {{ title }}
       </div>
       <div class="creator">
-        <span class="lead">created by {{ creator }}</span>
+        <span class="lead">Created by {{ creator }}</span>
       </div>
       <div class="subtitle">
         {{ subtitle }}
