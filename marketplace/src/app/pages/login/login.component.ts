@@ -9,12 +9,12 @@ import { Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
+  
   constructor(public auth: AuthService, public router: Router) { }
 
   ngOnInit(): void {
     if (this.auth.user$) {
       this.router.onSameUrlNavigation = 'reload';
-      this.router.navigate(['/register'])
     }
   }
 }

@@ -22,7 +22,6 @@ export class DashboardComponent implements OnInit {
 
   constructor(public auth: AuthService, private router: Router, private dataService: DataService, private formBuilder : FormBuilder) { 
     this.posts = this.getPosts();
-    console.log(this.posts)
   }
 
   ngOnInit(): void {

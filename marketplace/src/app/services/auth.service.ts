@@ -39,7 +39,7 @@ export class AuthService {
     const provider = new firebase.auth.GoogleAuthProvider();
     const credential = await this.fireAuth.signInWithPopup(provider);
     this.router.onSameUrlNavigation = 'reload';
-    this.router.navigate(['/register'])
+    this.router.navigate(['/register']);
     return this.updateUserData(credential.user);
   }
 
