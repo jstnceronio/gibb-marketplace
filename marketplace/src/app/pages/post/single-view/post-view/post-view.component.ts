@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable, Subscription } from 'rxjs';
 import { DataService } from 'src/app/services/data.service';
@@ -11,12 +12,21 @@ import { Comment } from '../../comment/comment.model';
   styleUrls: ['./post-view.component.scss']
 })
 export class PostViewComponent implements OnInit {
+  @Output() newComment = new EventEmitter();
+  
   private routeSub: Subscription;
   private id: string;
   public post: any;
   public comments: Observable<Comment[]> | null
+  private commentbody: string;
+  
+  public commentForm!: FormGroup
 
-  constructor(private route: ActivatedRoute, private dataService: DataService) {
+  constructor(private route: ActivatedRoute, private dataService: DataService, private formBuilder : FormBuilder) {
+    this.commentForm = this.formBuilder.group({
+      body: ['', Validators.required],
+    })
+
     this.comments = this.dataService.getComments(this.id);
     this.comments = this.filterComments();
   }
@@ -41,5 +51,12 @@ export class PostViewComponent implements OnInit {
        items.filter(comment => comment.parentId === this.id)) 
     );
     return newcomments;  
+  }
+
+  async postComment() {
+    this.commentbody = this.commentForm.get('body')!.value;
+    this.dataService.createComment(this.id, this.commentbody);
+    this.commentForm.reset();
+    return this.newComment.emit();
   }
 }

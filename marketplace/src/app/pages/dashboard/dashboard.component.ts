@@ -26,7 +26,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit(): void {
     this.filterForm = this.formBuilder.group({
-      selectedTribe: ['', Validators.required],
+      selectedTribe: ['Alle tribes', Validators.required],
     });
   }
 

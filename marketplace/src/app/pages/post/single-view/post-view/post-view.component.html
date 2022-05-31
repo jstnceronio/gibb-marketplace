@@ -6,8 +6,20 @@
     [likes]="post.likes"
     [uid]="post.uid">
 </app-post>
+<div class="container">
+    <form [formGroup]="commentForm" action="">
+        <div  class="add-title">
+            <textarea cols="40" rows="5" formControlName="body"  class="input" type="text" placeholder="Kommentar abgeben"></textarea>
+            <br>
+            <div class="actions">
+                <button (click)="postComment()" class="btn-submit" type="submit">Veröffentlichen</button>
+            </div>
+        </div>
+    </form>
+</div>
 <div *ngFor="let comment of comments | async">
     <b>{{comment.user}}</b>
     <br>
     {{comment.body}}
 </div>
+
