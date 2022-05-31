@@ -115,4 +115,18 @@ export class DataService {
     this.user$.subscribe
   }
 
+  async getSinglePost(id: string) {
+    return this.fireStore
+      .collection<Post>('post')
+               .doc(id)
+               .ref
+               .get()
+               .then((doc) => {
+                return doc.data() as Post;
+                })
+                .catch((err) => {
+                   console.error(err);
+                });
+  }
+
 }

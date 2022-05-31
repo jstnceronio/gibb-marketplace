@@ -6,6 +6,7 @@ import {AuthGuard} from "../services/auth.guard";
 import {RegisterComponent} from "../pages/register/register.component";
 import { CreateComponent } from '../pages/post/create/create.component';
 import { ProfileComponent } from '../pages/profile/profile.component';
+import { PostViewComponent } from '../pages/post/single-view/post-view/post-view.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'profile',
     component: ProfileComponent, canActivate: [AuthGuard]
+  },
+  {
+    path: 'single-view/:id',
+    component: PostViewComponent, canActivate: [AuthGuard]
   },
 ];
 

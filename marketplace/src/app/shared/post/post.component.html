@@ -9,9 +9,11 @@
     </ng-template>
     
     <div class="content">
-      <div class="title">
-        {{ title }}
-      </div>
+      <a [routerLink]="['/single-view/' + this.uid]">
+        <div class="title">
+          {{ title }}
+        </div>
+      </a>
       <div class="creator">
         <span class="lead">Created by {{ creator }}</span>
       </div>

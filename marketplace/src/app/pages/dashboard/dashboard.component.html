@@ -25,14 +25,15 @@
 </div>
 
 <div class="posts">
-  <!-- TODO: *NGFOR ALL POSTS -->
-    <app-post *ngFor="let post of posts | async"
-     [title]="post.title"
-     [subtitle]="post.tribe"
-     [text]="post.body"
-     [likes]="post.likes"
-     [comments]="post.comments"
-     [uid]="post.uid"
-     [creator]="post.creator">
+  <div *ngFor="let post of posts | async">
+    <app-post
+    [title]="post.title"
+    [subtitle]="post.tribe"
+    [text]="post.body"
+    [likes]="post.likes"
+    [comments]="post.comments"
+    [uid]="post.uid">
+    [creator]="post.creator">
     </app-post>
+  </div>
 </div>
