@@ -104,4 +104,22 @@ export class DataService {
     this.user$.subscribe
   }
 
+  getSinglePost(id: string): any {
+    return this.fireStore
+      .collection<Post>('post')
+               .doc(id)
+               .ref
+               .get()
+               .then((doc) => {
+                   if (doc.exists) {
+                       return doc.data();
+                   } else {
+                       return 'Doc does not exits';
+                   }
+                })
+                .catch((err) => {
+                   console.error(err);
+                });
+  }
+
 }
