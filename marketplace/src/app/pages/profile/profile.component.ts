@@ -62,8 +62,7 @@ export class ProfileComponent implements OnInit {
     this._department = this.profileForm.get('department')!.value;
 
     await this.auth.editUserData(this._firstname, this._lastname, this._username, this._department, this.filePath);
-    await this.router.navigateByUrl('/')
-    window.location.reload();
+    this.router.navigateByUrl('/')
   }
 
   resetData() {
