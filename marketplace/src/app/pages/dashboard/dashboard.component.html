@@ -26,16 +26,14 @@
 
 <div class="posts">
   <div *ngFor="let post of posts | async">
-    <div *ngIf="post.uid !== 'placeholder'">
-      <app-post
-      [title]="post.title"
-      [subtitle]="post.tribe"
-      [text]="post.body"
-      [likes]="post.likes"
-      [comments]="post.comments"
-      [uid]="post.uid"
-      [creator]="post.creator">
-      </app-post>
-    </div>
+    <app-post
+    [title]="post.title"
+    [subtitle]="post.tribe"
+    [text]="post.body"
+    [likes]="post.likes"
+    [comments]="post.comments"
+    [uid]="post.uid"
+    [creator]="post.creator">
+    </app-post>
   </div>
 </div>

@@ -41,7 +41,7 @@ export class DashboardComponent implements OnInit {
   }
 
   async filterPosts() {
-    let posts = this.getPosts();
+    let posts = this.getPosts()
     let tribe = this.filterForm.get('selectedTribe')!.value;
     if (tribe === "Alle tribes") {
       return this.posts = posts;
