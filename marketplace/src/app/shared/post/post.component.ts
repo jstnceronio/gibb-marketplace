@@ -5,7 +5,7 @@ import { faUserAstronaut } from '@fortawesome/free-solid-svg-icons';
 import { Observable } from 'rxjs';
 import { DataService } from '../../services/data.service'
 import { Comment } from '../../pages/post/comment/comment.model'
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
