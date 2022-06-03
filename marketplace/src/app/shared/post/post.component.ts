@@ -27,6 +27,7 @@ export class PostComponent implements OnInit {
   @Input() likes: number = 0;
   @Input() comments: number = 0;
   @Input() uid: string='';
+  @Input() user: string='';
   @Input() creator: string = '';
   
   private isliked: boolean = false;
@@ -42,7 +43,7 @@ export class PostComponent implements OnInit {
     // TODO: USE FUNCTION IN DATA SERVICE
     if (this.creator) { // FOR THE OLD POSTS THAT DON'T HAVE CREATORS YET
       this.fireStore
-      .collection("user",ref => ref.where("username", "==", this.creator).limit(1))
+      .collection("user",ref => ref.where("uid", "==", this.user).limit(1))
       .get()
       .subscribe(data=>data.forEach(el=> {
         let res = el.data();
