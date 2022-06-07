@@ -57,12 +57,10 @@ export class PostComponent implements OnInit {
   }
 
   checkTribe() {
-    if (this.subtitle == '1') {
-      this.tribe = 'General'
-    } else if (this.subtitle == '2') {
-      this.tribe = 'Memes'
-    } else {
-      this.tribe = 'Tests'
+    switch(this.subtitles) {
+      case '1': this.tribe = 'General';
+      case '2': this.tribe = 'Memes';
+      case '3': this.tribe = 'Tests';
     }
   }
 
