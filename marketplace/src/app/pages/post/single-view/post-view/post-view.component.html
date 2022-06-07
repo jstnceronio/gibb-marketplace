@@ -1,10 +1,12 @@
 <app-post
-    [title]="post.title"
-    [subtitle]="post.tribe"
-    [text]="post.body"
-    [comments]="post.comments"
-    [likes]="post.likes"
-    [uid]="post.uid">
+      [title]="post.title"
+      [subtitle]="post.tribe"
+      [text]="post.body"
+      [likes]="post.likes"
+      [comments]="post.comments"
+      [uid]="post.uid"
+      [user]="post.user"
+      [creator]="post.creator">
 </app-post>
 <div class="container">
     <form [formGroup]="commentForm" action="">
