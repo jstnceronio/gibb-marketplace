@@ -29,6 +29,8 @@ export class PostComponent implements OnInit {
   @Input() uid: string='';
   @Input() user: string='';
   @Input() creator: string = '';
+
+  tribe: string = ''
   
   private isliked: boolean = false;
   public commentsOfPost: Observable<Comment[]> | null;
@@ -50,6 +52,17 @@ export class PostComponent implements OnInit {
         this.filePath = res['img'];
         console.log(this.filePath);
       }));
+    }
+    this.checkTribe()
+  }
+
+  checkTribe() {
+    if (this.subtitle == '1') {
+      this.tribe = 'General'
+    } else if (this.subtitle == '2') {
+      this.tribe = 'Memes'
+    } else {
+      this.tribe = 'Tests'
     }
   }
 
