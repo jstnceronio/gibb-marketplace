@@ -14,10 +14,10 @@
   <form action="" class="form" name="filterForm" [formGroup]="filterForm" (ngSubmit)="filterPosts()">
     <div class="field">
       <select class="select" id="selectedTribe" formControlName="selectedTribe">
-            <option selected>Alle tribes</option> <!-- TODO: NGFOR* ALL OPTIONS-->
-            <option value="1">General</option>
-            <option value="2">Memes</option>
-            <option value="3">Tests</option>
+        <option selected>Alle Tribes</option>
+        <option *ngFor="let tribe of tribes" [value]="tribe">
+          {{tribe}}
+        </option>
       </select>
       <button class="btn-filter" type="submit" [disabled]="!filterForm.valid">Filtern</button>
     </div>
@@ -29,7 +29,7 @@
     <div *ngIf="post.uid !== 'placeholder'">
       <app-post
       [title]="post.title"
-      [subtitle]="post.tribe"
+      [tribe]="post.tribe"
       [text]="post.body"
       [likes]="post.likes"
       [comments]="post.comments"

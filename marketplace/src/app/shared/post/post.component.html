@@ -7,7 +7,7 @@
         <fa-icon [icon]="faUserAstronaut" size="3x"></fa-icon>
       </div>
     </ng-template>
-    
+
     <div class="content">
       <a [routerLink]="['/single-view/' + this.uid]">
         <div class="title">
@@ -17,7 +17,7 @@
       <div class="creator">
         <span class="lead">Created by {{ creator }}</span>
       </div>
-      <div class="subtitle">
+      <div class="tribe">
         {{ tribe }}
       </div>
       <div class="text">
@@ -35,11 +35,11 @@
         </div>
       </div>
       <div class="comments">
-        <app-comment *ngFor="let comment of commentsOfPost | async" 
-          [user]="comment.user" 
+        <app-comment *ngFor="let comment of commentsOfPost | async"
+          [user]="comment.user"
           [body]="comment.body">
         </app-comment>
-        <app-comment-form 
+        <app-comment-form
           [postId]="uid" (newComment)="addCommentToPost()">
         </app-comment-form>
       </div>

@@ -19,10 +19,10 @@
         <div class="right">
             <div class="tribes">
                 <select formControlName="tribe" class="select">
-                      <option selected>Alle tribes</option> <!-- TODO: MULTISELECT FUNCTIONALITY AND NGFOR* ALL OPTIONS-->
-                      <option value="1">General</option>
-                      <option value="2">Memes</option>
-                      <option value="3">Tests</option>
+                      <option selected>Alle Tribes</option>
+                      <option *ngFor="let tribe of tribes" [value]="tribe">
+                         {{tribe}}
+                      </option>
                 </select>
             </div>
             <div class="actions">
