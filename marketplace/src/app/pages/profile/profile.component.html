@@ -10,7 +10,7 @@
                       Vorname
                     </label>
                     <input class="form-input" id="firstname" type="text" placeholder="Name" formControlName="firstname">
-                    <span class="text-danger" *ngIf="profileForm.controls['firstname'].dirty && profileForm.hasError('required', 'firstname')">Dieses Feld ist obligatorisch</span>
+                    <span class="text-danger" *ngIf="profileForm.controls['firstname'].dirty && profileForm.hasError('required', 'firstname')">Vergiss nicht deinen Vornamen einzugeben!</span>
                 </div>
             </div>
             <div class="lastname">
@@ -19,7 +19,7 @@
                       Nachname
                     </label>
                     <input class="form-input" id="lastname" type="text" placeholder="Nachname" formControlName="lastname">
-                    <span class="text-danger" *ngIf="profileForm.controls['lastname'].dirty && profileForm.hasError('required', 'lastname')">Dieses Feld ist obligatorisch</span>
+                    <span class="text-danger" *ngIf="profileForm.controls['lastname'].dirty && profileForm.hasError('required', 'lastname')">Vergiss nicht deinen Nachnamen einzugeben!</span>
                 </div>
             </div>
             <div class="username">
@@ -28,16 +28,16 @@
                         Benutzername
                     </label>
                     <input class="form-input" id="username" type="text" placeholder="Benutzername" formControlName="username">
-                    <span class="text-danger" *ngIf="profileForm.controls['username'].dirty && profileForm.hasError('required', 'username')">Dieses Feld ist obligatorisch</span>
+                    <span class="text-danger" *ngIf="profileForm.controls['username'].dirty && profileForm.hasError('required', 'username')">Wir brauchen für dich einen Benutzernamen!</span>
                 </div>
             </div>
             <div class="departement">
                 <div class="form-control">
                     <label class="form-label" for="department">
-                      Abteilung / Klasse
+                      Klasse
                     </label>
                     <input class="form-input" id="department" type="text" placeholder="Abteilung" formControlName="department">
-                    <span class="text-danger" *ngIf="profileForm.controls['department'].dirty && profileForm.hasError('required', 'department')">Dieses Feld ist obligatorisch</span>
+                    <span class="text-danger" *ngIf="profileForm.controls['department'].dirty && profileForm.hasError('required', 'department')">Wir müssen wissen in welcher Klasse du bist!</span>
                 </div>
             </div>
             <div class="actions">
