@@ -22,19 +22,26 @@ export class PostComponent implements OnInit {
 
   /* PARAMETERS */
   @Input() title: string = '';
-  @Input() subtitle: string = '';
+  @Input() tribe: string = '';
   @Input() text: string = '';
   @Input() likes: number = 0;
   @Input() comments: number = 0;
   @Input() uid: string='';
   @Input() user: string='';
   @Input() creator: string = '';
-  
+
+  static tribes: string[] = [
+    "General",
+    "Memes",
+    "Tests",
+    "Other Thing"
+  ]
+
   private isliked: boolean = false;
   public commentsOfPost: Observable<Comment[]> | null;
   public filePath = 'undefined';
 
-  constructor(private dataService: DataService, private fireStore: AngularFirestore) { 
+  constructor(private dataService: DataService, private fireStore: AngularFirestore) {
     this.commentsOfPost = dataService.getComments(this.uid);
     this.commentsOfPost = this.filterComments();
   }
@@ -80,9 +87,9 @@ export class PostComponent implements OnInit {
 
   filterComments() {
     let newcomments = this.commentsOfPost.pipe (
-      map(items => 
-       items.filter(comment => comment.parentId === this.uid)) 
+      map(items =>
+       items.filter(comment => comment.parentId === this.uid))
     );
-    return newcomments;  
+    return newcomments;
   }
 }

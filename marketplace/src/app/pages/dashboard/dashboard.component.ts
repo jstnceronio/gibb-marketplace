@@ -5,6 +5,7 @@ import { DataService } from 'src/app/services/data.service';
 import { map, Observable} from 'rxjs';
 import { Post } from '../../shared/post/post.model'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { PostComponent } from 'src/app/shared/post/post.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -16,13 +17,15 @@ export class DashboardComponent implements OnInit {
   posts: Observable<Post[]>;
   public filterForm!: FormGroup;
 
-  constructor(public auth: AuthService, private router: Router, private dataService: DataService, private formBuilder : FormBuilder) { 
+  public tribes = PostComponent.tribes;
+
+  constructor(public auth: AuthService, private router: Router, private dataService: DataService, private formBuilder : FormBuilder) {
     this.posts = this.getPosts();
   }
 
   ngOnInit(): void {
     this.filterForm = this.formBuilder.group({
-      selectedTribe: ['Alle tribes', Validators.required],
+      selectedTribe: ['Alle Tribes', Validators.required],
     });
   }
 
@@ -39,12 +42,12 @@ export class DashboardComponent implements OnInit {
   async filterPosts() {
     let posts = this.getPosts()
     let tribe = this.filterForm.get('selectedTribe')!.value;
-    if (tribe === "Alle tribes") {
+    if (tribe === "Alle Tribes") {
       return this.posts = posts;
     }
     let filteredPosts = posts.pipe (
-      map(items => 
-       items.filter(post => post.tribe === tribe)) 
+      map(items =>
+       items.filter(post => post.tribe === tribe))
     );
     this.posts =  filteredPosts;
   }

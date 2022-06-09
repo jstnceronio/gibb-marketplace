@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, } from "@angular/forms";
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/services/data.service';
+import { PostComponent } from 'src/app/shared/post/post.component';
 
 @Component({
   selector: 'app-create',
@@ -13,8 +14,10 @@ export class CreateComponent implements OnInit {
   public _content = ' ';
   public _tribe = ' ';
 
+  public tribes = PostComponent.tribes;
+
   public createPostForm!: FormGroup
-  
+
   constructor(private router: Router, private formBuilder : FormBuilder, private dataService: DataService) {
   }
 
