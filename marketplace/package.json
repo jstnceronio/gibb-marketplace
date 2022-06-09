@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "npx cross-env NODE_ENV=production ng build",
     "watch": "ng build --watch --configuration production",
-    "test": "ng test"
+    "test": "ng test",
+    "deploy": "npm build && firebase deploy"
   },
   "private": true,
   "dependencies": {
