@@ -6,4 +6,4 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 See [DEPLOY.md](../DEPLOY.md) for infos about serving and deploying gibbMarkeplace
 
-*Serving can also be done directly through npm but is discouraged. Use `npm start` to do so.*
+*Serving can also be done directly through npm but is discouraged. Use `npm start` to do so anyway.*
