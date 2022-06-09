@@ -43,3 +43,6 @@ Thumbs.db
 
 # NPM
 package-lock.json
+
+# Firebase
+.firebase/
