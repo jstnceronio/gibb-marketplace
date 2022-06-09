@@ -1,4 +1,4 @@
-<div class="main-grid">  
+<div class="main-grid">
   <!-- Left side -->
   <div class="form-container">
     <div class="main-heading">
@@ -12,7 +12,7 @@
             Vorname
           </label>
           <input class="form-input" id="firstname" type="text" placeholder="Name" formControlName="firstname">
-          <span class="text-danger" *ngIf="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required', 'firstname')">Firstname field is required</span>
+          <span class="text-danger" *ngIf="registrationForm.controls['firstname'].dirty && registrationForm.hasError('required', 'firstname')">Vergiss nicht deinen Vornamen einzugeben!</span>
         </div>
         <!-- Lastname -->
         <div class="form-control">
@@ -20,7 +20,7 @@
             Nachname
           </label>
           <input class="form-input" id="lastname" type="text" placeholder="Nachname" formControlName="lastname">
-          <span class="text-danger" *ngIf="registrationForm.controls['lastname'].dirty && registrationForm.hasError('required', 'lastname')">Lastname field is required</span>
+          <span class="text-danger" *ngIf="registrationForm.controls['lastname'].dirty && registrationForm.hasError('required', 'lastname')">Vergiss nicht deinen Nachnamen einzugeben!</span>
         </div>
         <!-- Username -->
         <div class="form-control">
@@ -28,22 +28,22 @@
             Benutzername
           </label>
           <input class="form-input" id="username" type="text" placeholder="Benutzername" formControlName="username">
-          <span class="text-danger" *ngIf="registrationForm.controls['username'].dirty && registrationForm.hasError('required', 'username')">Username field is required</span>
+          <span class="text-danger" *ngIf="registrationForm.controls['username'].dirty && registrationForm.hasError('required', 'username')">Wir brauchen für dich einen Benutzernamen!</span>
         </div>
         <!-- Department -->
         <div class="form-control">
           <label class="form-label" for="department">
-            Abteilung
+            Klasse
           </label>
           <input class="form-input" id="department" type="text" placeholder="Abteilung" formControlName="department">
-          <span class="text-danger" *ngIf="registrationForm.controls['department'].dirty && registrationForm.hasError('required', 'department')">Department field is required</span>
+          <span class="text-danger" *ngIf="registrationForm.controls['department'].dirty && registrationForm.hasError('required', 'department')">Wir müssen wissen in welcher Klasse du bist!</span>
         </div>
         <div class="flex items-center justify-between">
           <button class="btn-continue hover:bg-blue-700" type="submit" (click)="validateForm()">
-            Weiter
+            Speichern
           </button>
           <a class="btn-back hover:text-blue-800" href="#" (click)="cancelRegistration()">
-            Zurück
+            Abbrechen
           </a>
         </div>
       </div>
