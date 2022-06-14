@@ -2,25 +2,25 @@
   <div class="sticky-wrapper">
     <div class="logo-wrapper">
       <div class="marketplace-logo-wrapper">
-        <a class="marketplace-logo-link" routerLink="/">
+        <a class="marketplace-logo-link route" (click)="navigate('/')">
           <img class="marketplace-logo" src="./../../../assets/img/logo-black.png" alt="Marketplace Logo">
         </a>
       </div>
     </div>
     <div class="nav-list">
-      <a class="nav-link-button" routerLink="/">
+      <a class="nav-link-button route" (click)="navigate('/')">
         <div class="nav-link-icon-wrapper">
           <fa-icon class="icon" [icon]="faHouse" size="1x"></fa-icon>
         </div>
         <h3 class="nav-link-text">Dashboard</h3>
       </a>
-      <a class="nav-link-button" routerLink="/my-posts">
+      <a class="nav-link-button route" (click)="navigate('/my-posts')">
         <div class="nav-link-icon-wrapper">
           <fa-icon class="icon" [icon]="faBook" size="1x"></fa-icon>
         </div>
         <h3 class="nav-link-text">Meine Posts</h3>
       </a>
-      <a class="nav-link-button" routerLink="/profile">
+      <a class="nav-link-button route" (click)="navigate('/profile')">
         <div class="nav-link-icon-wrapper">
           <fa-icon class="icon" [icon]="faIdCard" size="1x"></fa-icon>
         </div>
@@ -29,7 +29,7 @@
     </div>
     <div class="spacer"></div>
     <div class="user-info" *ngIf="auth.user$ | async as user">
-      <a class="user-info-button" routerLink="/profile">
+      <a class="user-info-button" (click)="navigate('/profile')">
         <div class="user-icon-wrapper" *ngIf="user.img !== 'undefined'; else placeholder">
           <img [src]="user.img" class="user-icon rounded-full aspect-square w-[64px]">
         </div>

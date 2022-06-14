@@ -3,8 +3,11 @@
   @apply flex-col;
   @apply w-auto;
   @apply min-w-[280px];
-  @apply border-r-[1px];
   @apply h-full;
+}
+
+a {
+  @apply cursor-pointer;
 }
 
 .sticky-wrapper {
@@ -18,10 +21,9 @@
   @apply justify-center;
   @apply px-2;
   @apply py-4;
-  @apply border-b-2;
-  @apply border-b-gray-200;
+  @apply border-b;
+  @apply border-b-gray-500;
   @apply rounded-sm;
-  @apply mx-2;
 
   .marketplace-logo-wrapper {
       @apply flex;
@@ -86,7 +88,8 @@
   @apply flex-col;
   @apply w-full;
   @apply min-h-[96px];
-  @apply border-y-2;
+  @apply border-y;
+  @apply border-y-gray-500;
   @apply self-end;
 
   .user-info-button {
