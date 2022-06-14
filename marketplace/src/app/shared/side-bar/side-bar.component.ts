@@ -25,4 +25,8 @@ export class SideBarComponent implements OnInit {
       this.isLoggedIn = user && user.firstname;
     })
   }
+
+  navigate(destination) {
+    this.router.navigateByUrl(destination);
+  }
 }
