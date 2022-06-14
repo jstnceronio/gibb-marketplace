@@ -1,17 +1,19 @@
-<div class="header">
-  Meine Posts
-</div>
-<div class="posts">
-  <div *ngFor="let post of posts | async">
-    <app-post
-    [title]="post.title"
-    [tribe]="post.tribe"
-    [text]="post.body"
-    [likes]="post.likes"
-    [comments]="post.comments"
-    [uid]="post.uid"
-    [user]="post.user"
-    [creator]="post.creator">
-    </app-post>
+<div class="post-view">
+  <div class="header">
+    Meine Posts
+  </div>
+  <div class="posts">
+    <div *ngFor="let post of posts | async">
+      <app-post
+      [title]="post.title"
+      [tribe]="post.tribe"
+      [text]="post.body"
+      [likes]="post.likes"
+      [comments]="post.comments"
+      [uid]="post.uid"
+      [user]="post.user"
+      [creator]="post.creator">
+      </app-post>
+    </div>
   </div>
 </div>

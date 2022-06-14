@@ -1,15 +1,18 @@
 .wrapper {
     @apply font-montserrat p-16;
+    @apply min-h-screen;
+    @apply border-l;
+    @apply border-gray-500;
 
     .header {
         @apply text-4xl font-bold text-gray-500;
     }
 
     form {
-        @apply flex flex-col-reverse lg:flex-row justify-between mt-8 w-full;
+        @apply flex flex-col-reverse xl:flex-row mt-8 w-full;
 
         .left {
-            @apply w-96;
+            @apply w-96 mr-16;
 
             .form-control {
                 @apply py-4;
